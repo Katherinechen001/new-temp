@@ -6,6 +6,5 @@
 
 ```{r}
 library(ggplot2)
-
 ```
 

@@ -24,7 +24,7 @@ book:
 
 format:
   html:
-    theme: minty
+    theme: cosmo
     code-fold: true
 
 

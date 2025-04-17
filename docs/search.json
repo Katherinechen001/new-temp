@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "studios-pancake",
+    "section": "",
+    "text": "1 Introduction"
+  },
+  {
+    "objectID": "data.html#description",
+    "href": "data.html#description",
+    "title": "2  Data",
+    "section": "2.1 Description",
+    "text": "2.1 Description"
+  },
+  {
+    "objectID": "data.html#missing-value-analysis",
+    "href": "data.html#missing-value-analysis",
+    "title": "2  Data",
+    "section": "2.2 Missing value analysis",
+    "text": "2.2 Missing value analysis"
+  },
+  {
+    "objectID": "results.html#first-result",
+    "href": "results.html#first-result",
+    "title": "3  Results",
+    "section": "3.1 First result",
+    "text": "3.1 First result"
+  },
+  {
+    "objectID": "results.html#second-result",
+    "href": "results.html#second-result",
+    "title": "3  Results",
+    "section": "3.2 Second result",
+    "text": "3.2 Second result\n\n\nCode\nlibrary(ggplot2)"
+  }
+]
