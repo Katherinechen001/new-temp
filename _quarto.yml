@@ -4,6 +4,8 @@ project:
 
 execute:
   echo: true
+  warning: false
+  message: false
 
 book:
   title: "Predicting Housing Prices"
@@ -18,6 +20,7 @@ book:
   chapters:
     - index.qmd
     - data.qmd
+    - chapter21.qmd
     - results.qmd
     - conclusion.qmd
 

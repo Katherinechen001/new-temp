@@ -412,7 +412,7 @@ At the opposite tail (actual ≈ –1.2), the predictions cluster just above (ar
 Wider Scatter in the Midrange
 Between standardized actual values of –0.5 to +2.0, the cloud of points shows moderate vertical dispersion—predictions vary by ±0.5 sd around the line.  That midrange scatter indicates heteroscedasticity: the model is less precise for “typical” homes than for extreme cases, perhaps because there are more competing factors (location, condition, style) in that middle market.
 
-Implications for Model Improvement
+## Implications for Model Improvement
 
 Nonlinear Terms: Incorporate quadratic or spline terms for area or bathrooms to let the model flex at the tails.
 
@@ -435,13 +435,3 @@ Critical takeaway:
 While the linear model holds up well in general, its mid-range under-prediction and sporadic large underestimates point to a need for either richer feature sets (e.g., local amenities, year built) or segmented models for different market tiers. Addressing these could tighten residuals and improve trust in pricing recommendations across all property classes.
 
 
-
-
-
-
-
-
-
-
-## this is a line for branch 1
-## this is a line for branch 2
