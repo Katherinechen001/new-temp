@@ -6,7 +6,8 @@ execute:
   echo: true
   warning: false
   message: false
-  eval: False
+  eval: true
+  
 book:
   title: "Predicting Housing Prices"
   author:
@@ -19,6 +20,7 @@ book:
   repo-actions: [edit, issue]
   chapters:
     - index.qmd
+    - final.qmd
     - data.qmd
     - chapter21.qmd
     - results.qmd

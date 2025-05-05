@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Predicting Housing Prices - 4&nbsp; Results</title>
+<title>Predicting Housing Prices - 5&nbsp; Results</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./results.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Results</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./results.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Results</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -144,26 +144,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Housing Price Prediction Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Apartment Prices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Apartment Prices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Results</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Results</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
     </ul>
@@ -176,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#implications-for-model-improvement" id="toc-implications-for-model-improvement" class="nav-link active" data-scroll-target="#implications-for-model-improvement"><span class="header-section-number">4.1</span> Implications for Model Improvement</a></li>
+  <li><a href="#implications-for-model-improvement" id="toc-implications-for-model-improvement" class="nav-link active" data-scroll-target="#implications-for-model-improvement"><span class="header-section-number">5.1</span> Implications for Model Improvement</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/results.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -185,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Results</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Results</span></h1>
 </div>
 
 
@@ -642,8 +648,8 @@ $ furnishingstatus.furnished        &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1,
 <p>Underprediction at the High End Notice the rightmost points—homes with very large standardized actual values (around +4)—are predicted lower (around +3). The model is “shrinking” the extreme prices back toward the mean, a classic sign of regression toward the mean. It tells us our linear model fails to capture the full upside value of truly premium properties, perhaps because of missing high-end amenities or nonlinear size effects.</p>
 <p>Mild Overprediction at the Low End At the opposite tail (actual ≈ –1.2), the predictions cluster just above (around –1.0). The model again regresses extremes inward, slightly overestimating the cheapest homes’ prices. This could reflect floor effects (there’s a minimum viable market price) or that our “no amenity” flags don’t fully explain very low-priced segments.</p>
 <p>Wider Scatter in the Midrange Between standardized actual values of –0.5 to +2.0, the cloud of points shows moderate vertical dispersion—predictions vary by ±0.5 sd around the line. That midrange scatter indicates heteroscedasticity: the model is less precise for “typical” homes than for extreme cases, perhaps because there are more competing factors (location, condition, style) in that middle market.</p>
-<section id="implications-for-model-improvement" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="implications-for-model-improvement"><span class="header-section-number">4.1</span> Implications for Model Improvement</h2>
+<section id="implications-for-model-improvement" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="implications-for-model-improvement"><span class="header-section-number">5.1</span> Implications for Model Improvement</h2>
 <p>Nonlinear Terms: Incorporate quadratic or spline terms for area or bathrooms to let the model flex at the tails.</p>
 <p>Segmented Models: Fit separate regressions for low-, mid-, and high-priced tiers, or include interaction terms between size and amenity flags.</p>
 <p>Additional Features: Bring in location quality, age of property, or architectural style to explain why some premium homes exceed the linear model’s ceiling.</p>
@@ -895,12 +901,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chapter21.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Apartment Prices</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Apartment Prices</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./conclusion.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
