@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>studios-pancake - 3&nbsp; Results</title>
+<title>Predicting Housing Prices - 3&nbsp; Results</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./d3graph.html" rel="next">
+<link href="./conclusion.html" rel="next">
 <link href="./data.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">studios-pancake</a> 
+      <a href="./">Predicting Housing Prices</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/Katherinechen001/new-temp" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -156,14 +156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./d3graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interactive graph</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
     </ul>
@@ -176,8 +170,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#first-result" id="toc-first-result" class="nav-link active" data-scroll-target="#first-result"><span class="header-section-number">3.1</span> First result</a></li>
-  <li><a href="#second-result" id="toc-second-result" class="nav-link" data-scroll-target="#second-result"><span class="header-section-number">3.2</span> Second result</a></li>
+  <li><a href="#this-is-a-line-for-branch-1" id="toc-this-is-a-line-for-branch-1" class="nav-link active" data-scroll-target="#this-is-a-line-for-branch-1"><span class="header-section-number">3.1</span> this is a line for branch 1</a></li>
+  <li><a href="#this-is-a-line-for-branch-2" id="toc-this-is-a-line-for-branch-2" class="nav-link" data-scroll-target="#this-is-a-line-for-branch-2"><span class="header-section-number">3.2</span> this is a line for branch 2</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/results.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -201,17 +195,585 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="first-result" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="first-result"><span class="header-section-number">3.1</span> First result</h2>
-</section>
-<section id="second-result" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="second-result"><span class="header-section-number">3.2</span> Second result</h2>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice
+
+Attaching package: 'caret'
+
+The following object is masked from 'package:purrr':
+
+    lift</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lattice)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData
+
+Attaching package: 'car'
+
+The following object is masked from 'package:dplyr':
+
+    recode
+
+The following object is masked from 'package:purrr':
+
+    some</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>corrplot 0.92 loaded</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'glmnet' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix
+
+Attaching package: 'Matrix'
+
+The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack
+
+Loaded glmnet 4.1-8</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'randomForest' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>randomForest 4.7-1.2
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: 'randomForest'
+
+The following object is masked from 'package:dplyr':
+
+    combine
+
+The following object is masked from 'package:ggplot2':
+
+    margin</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'rpart' was built under R version 4.3.3</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data and eliminate the rows containing NA</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>data_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/Housing.csv"</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Factor transformation</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mainroad          =</span> <span class="fu">factor</span>(mainroad,          <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">guestroom         =</span> <span class="fu">factor</span>(guestroom,         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">basement          =</span> <span class="fu">factor</span>(basement,          <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">hotwaterheating   =</span> <span class="fu">factor</span>(hotwaterheating,   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">airconditioning   =</span> <span class="fu">factor</span>(airconditioning,   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">prefarea         =</span> <span class="fu">factor</span>(prefarea,          <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">furnishingstatus  =</span> <span class="fu">factor</span>(furnishingstatus,</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                               <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"unfurnished"</span>,<span class="st">"semi-furnished"</span>,<span class="st">"furnished"</span>))</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Dummy variable</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>dummy_mod <span class="ot">&lt;-</span> <span class="fu">dummyVars</span>(<span class="sc">~</span> ., <span class="at">data =</span> data[ , <span class="sc">-</span><span class="dv">1</span>], <span class="at">fullRank =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>data_dummies <span class="ot">&lt;-</span> <span class="fu">predict</span>(dummy_mod, <span class="at">newdata =</span> data) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the "price" column</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>data2_raw <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(<span class="at">price =</span> data<span class="sc">$</span>price, data_dummies)</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data2_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 545
+Columns: 14
+$ price                             &lt;int&gt; 13300000, 12250000, 12250000, 122150…
+$ area                              &lt;dbl&gt; 7420, 8960, 9960, 7500, 7420, 7500, …
+$ bedrooms                          &lt;dbl&gt; 4, 4, 3, 4, 4, 3, 4, 5, 4, 3, 3, 4, …
+$ bathrooms                         &lt;dbl&gt; 2, 4, 2, 2, 1, 3, 3, 3, 1, 2, 1, 3, …
+$ stories                           &lt;dbl&gt; 3, 4, 2, 2, 2, 1, 4, 2, 2, 4, 2, 2, …
+$ mainroad.no                       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ guestroom.no                      &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, …
+$ basement.no                       &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, …
+$ hotwaterheating.no                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, …
+$ airconditioning.no                &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, …
+$ parking                           &lt;dbl&gt; 2, 3, 2, 3, 2, 2, 2, 0, 2, 1, 2, 2, …
+$ prefarea.no                       &lt;dbl&gt; 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, …
+$ `furnishingstatus.semi-furnished` &lt;dbl&gt; 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, …
+$ furnishingstatus.furnished        &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, …</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#I want to make sure that all columns in data2_raw are of numeric type (dbl), and there are no original factor columns in the column names.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create stratified partition on the price variable</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>idx       <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(data2_raw<span class="sc">$</span>price, <span class="at">p =</span> <span class="fl">0.8</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>train_raw <span class="ot">&lt;-</span> data2_raw[idx, ]</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>test_raw  <span class="ot">&lt;-</span> data2_raw[<span class="sc">-</span>idx, ]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>scaler    <span class="ot">&lt;-</span> <span class="fu">preProcess</span>(train_raw, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"scale"</span>))</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the scaler to both sets</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>train     <span class="ot">&lt;-</span> <span class="fu">predict</span>(scaler, train_raw)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>test      <span class="ot">&lt;-</span> <span class="fu">predict</span>(scaler, test_raw)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Confirm scaling: mean≈0, sd≈1</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>train_summary <span class="ot">&lt;-</span> train <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(.), <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(.))))</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(train_summary[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>])  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    price_mean price_sd     area_mean area_sd bedrooms_mean bedrooms_sd
+1 1.550257e-15        1 -2.048336e-15       1  8.127378e-16           1</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Standardizing both predictors and the target (price) lets regularized models (Ridge, Lasso) work properly and makes error metrics comparable across features.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear Regression</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>lm_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ridge Regression (α = 0)</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>ridge_cv  <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">x     =</span> <span class="fu">as.matrix</span>(train[, <span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">y     =</span> train<span class="sc">$</span>price,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="dv">0</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>ridge_mod <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">x      =</span> <span class="fu">as.matrix</span>(train[, <span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">y      =</span> train<span class="sc">$</span>price,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha  =</span> <span class="dv">0</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> ridge_cv<span class="sc">$</span>lambda.min</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Lasso Regression (α = 1)</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>lasso_cv  <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">x     =</span> <span class="fu">as.matrix</span>(train[, <span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">y     =</span> train<span class="sc">$</span>price,</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="dv">1</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>lasso_mod <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">x     =</span> <span class="fu">as.matrix</span>(train[, <span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">y     =</span> train<span class="sc">$</span>price,</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="dv">1</span>,</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda=</span> lasso_cv<span class="sc">$</span>lambda.min</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Elastic Net (α = 0.5)</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>enet_cv  <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">x     =</span> <span class="fu">as.matrix</span>(train[, <span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">y     =</span> train<span class="sc">$</span>price,</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="fl">0.5</span></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>enet_mod <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">x      =</span> <span class="fu">as.matrix</span>(train[, <span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">y      =</span> train<span class="sc">$</span>price,</span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha  =</span> <span class="fl">0.5</span>,</span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> enet_cv<span class="sc">$</span>lambda.min</span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a><span class="co"># k-Nearest Neighbors</span></span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kknn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'kknn' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'kknn'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:caret':
+
+    contr.dummy</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>knn_mod <span class="ot">&lt;-</span> <span class="fu">train.kknn</span>(</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  price <span class="sc">~</span> .,</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data  =</span> train,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">kmax  =</span> <span class="dv">10</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">kernel=</span> <span class="st">"optimal"</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define evaluation function </span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(true, pred) {</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  mae  <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(true <span class="sc">-</span> pred))</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  mse  <span class="ot">&lt;-</span> <span class="fu">mean</span>((true <span class="sc">-</span> pred)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  rmse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(mse)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  r2   <span class="ot">&lt;-</span> <span class="fu">cor</span>(true, pred)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">MAE =</span> mae, <span class="at">MSE =</span> mse, <span class="at">RMSE =</span> rmse, <span class="at">R2 =</span> r2)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>pred_lm    <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_mod,    test)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>pred_ridge <span class="ot">&lt;-</span> <span class="fu">predict</span>(ridge_mod, <span class="at">newx =</span> <span class="fu">as.matrix</span>(test[, <span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>pred_lasso <span class="ot">&lt;-</span> <span class="fu">predict</span>(lasso_mod, <span class="at">newx =</span> <span class="fu">as.matrix</span>(test[, <span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>pred_enet  <span class="ot">&lt;-</span> <span class="fu">predict</span>(enet_mod,  <span class="at">newx =</span> <span class="fu">as.matrix</span>(test[, <span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>pred_knn   <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_mod,   test)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>eval_lm    <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_lm)</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>eval_ridge <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_ridge)</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>eval_lasso <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_lasso)</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>eval_enet  <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_enet)</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>eval_knn   <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_knn)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate results into a data frame</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">Linear     =</span> eval_lm,</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ridge      =</span> eval_ridge,</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">Lasso      =</span> eval_lasso,</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">ElasticNet =</span> eval_enet,</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">KNN        =</span> eval_knn</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Model"</span>)</span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Model       MAE       MSE      RMSE        R2
+1     Linear 0.4324900 0.3567765 0.5973077 0.6931722
+2      Ridge 0.4349472 0.3595279 0.5996065 0.6942843
+3      Lasso 0.4325785 0.3571445 0.5976156 0.6933268
+4 ElasticNet 0.4326635 0.3572365 0.5976927 0.6933866
+5        KNN 0.4318257 0.4479066 0.6692583 0.6580994</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span> <span class="fu">slice_min</span>(RMSE, <span class="at">n =</span> <span class="dv">1</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Best model by RMSE is:"</span>, best_model<span class="sc">$</span>Model, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best model by RMSE is: Linear </code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IncNodePurity: total reduction in node impurity (variance) when splitting on that feature</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># X.IncMSE: increase in out‐of‐bag MSE if we randomly permute that feature (i.e. how much error jumps when the feature is “hidden”)</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>rf_mod <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x          =</span> train[, <span class="sc">-</span><span class="dv">1</span>],</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">y          =</span> train<span class="sc">$</span>price,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance =</span> <span class="cn">TRUE</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>rf_imp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(rf_mod<span class="sc">$</span>importance) <span class="sc">%&gt;%</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"feature"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols      =</span> <span class="fu">c</span>(<span class="st">"X.IncMSE"</span>, <span class="st">"IncNodePurity"</span>),</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to  =</span> <span class="st">"Metric"</span>,</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Importance"</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rf_imp, <span class="fu">aes</span>(<span class="at">x =</span> Importance, <span class="at">y =</span> <span class="fu">fct_reorder</span>(feature, Importance), <span class="at">color =</span> Metric)) <span class="sc">+</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Random Forest Feature Importance"</span>,</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x     =</span> <span class="st">"Importance Score"</span>,</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y     =</span> <span class="cn">NULL</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Insight 1: “Area” Dominance and Its Implications The fact that area towers above every other predictor in both IncNodePurity and permutation‐based (X.IncMSE) importance suggests that sheer square footage is by far the strongest driver of price in this market. That makes intuitive sense—larger homes usually cost more—but it also raises a warning flag: if area is so dominant, our downstream models (especially linear or regularized ones) may end up “coasting” on that one feature and under-utilizing the richer—but weaker—signals in the other covariates. In practice, you might consider:</p>
+<p>Normalizing area relative to neighborhood averages (to capture “premium” size, not just raw square footage).</p>
+<p>Adding interactions (e.g.&nbsp;area × stories) to see if extra space on higher floors actually commands a price premium.</p>
+<p>Insight 2: Categorical Variables Hold Meaningful Signal, but Are We Missing Subtlety? Notice that airconditioning. no (absence of air conditioning) and parking both rank near the top in impurity‐based importance. This tells us buyers penalize homes without a/c and reward those with parking more than, say, extra bedrooms or a semi‐furnished status. However:</p>
+<p>The red bars for airconditioning. no are smaller than area/bathrooms but still notably large—implying that a/c is almost as critical as having multiple stories or extra bathrooms.</p>
+<p>We should question whether “no airconditioning” is picking up on a deeper latent factor—perhaps older homes, lower-income areas, or properties without other modern amenities. It might be worthwhile to cluster by age or location to see if absence of a/c is acting as a proxy for something else.</p>
+<p>Insight 3: Consistency Between Importance Metrics The near-perfect alignment between IncNodePurity (red) and X.IncMSE (teal) across nearly all features is reassuring: it means both split‐based and permutation approaches agree on the rank ordering. If they had diverged—say, one metric flagged stories as top-5 but the other didn’t—we’d need to dig in for potential biases (like the impurity measure’s known favoritism toward high-cardinality variables). Here, the agreement suggests our RF importances are stable.</p>
+<p>Insight 4: Lower-Power Features and the Dangers of Overfitting Toward the bottom of the chart you see guestroom. no, furnishingstatus. furnished, and hotwaterheating. no with minimal importance. In a simpler linear model these might still get non-zero coefficients, but the RF is essentially “ignoring” them. This could be because:</p>
+<p>Their true effect on price is marginal, or</p>
+<p>The binary splits on these rarely improve homogeneity once the big guns (area, a/c, bathrooms) are in play.</p>
+<p>Before pruning these variables entirely, though, consider whether they might exhibit nonlinear interactions or only matter in specific sub-markets (e.g.&nbsp;high-end furnished units).</p>
+<p>Critical Takeaway: While area and bathrooms emerge as the “headline” drivers of price, the next tier (air conditioning, parking, stories) reveal the amenity-driven nature of this housing market. Yet, the very dominance of area suggests we should refine our feature engineering—perhaps by normalizing by lot size or introducing spatial/contextual variables—so that the models learn a richer, more nuanced story beyond “bigger = pricier.”</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Feature importance</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a simple decision tree</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>tree_mod <span class="ot">&lt;-</span> <span class="fu">rpart</span>(price <span class="sc">~</span> ., <span class="at">data =</span> train, <span class="at">method =</span> <span class="st">"anova"</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract and normalize importances</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>dt_imp <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">feature    =</span> <span class="fu">names</span>(tree_mod<span class="sc">$</span>variable.importance),</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Importance =</span> tree_mod<span class="sc">$</span>variable.importance</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Importance =</span> <span class="dv">100</span> <span class="sc">*</span> Importance <span class="sc">/</span> <span class="fu">sum</span>(Importance),</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Model      =</span> <span class="st">"Decision Tree"</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>rf_imp2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(rf_mod<span class="sc">$</span>importance) <span class="sc">%&gt;%</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"feature"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    feature,</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Importance =</span> <span class="dv">100</span> <span class="sc">*</span> IncNodePurity <span class="sc">/</span> <span class="fu">sum</span>(IncNodePurity),</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Model      =</span> <span class="st">"Random Forest"</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 5 each</span></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>top_dt <span class="ot">&lt;-</span> dt_imp <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(Importance, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>top_rf <span class="ot">&lt;-</span> rf_imp2 <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(Importance, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>cmp_imp <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(top_dt, top_rf)</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cmp_imp, <span class="fu">aes</span>(<span class="at">x =</span> Importance, <span class="at">y =</span> <span class="fu">fct_reorder</span>(feature, Importance), <span class="at">fill =</span> Model)) <span class="sc">+</span></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>)) <span class="sc">+</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 5 Feature Importances: Tree vs. Forest"</span>,</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">x     =</span> <span class="st">"Relative Importance (%)"</span>,</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">y     =</span> <span class="cn">NULL</span></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Insight 1: Area and Bathrooms Consistently Reign Supreme Both single decision tree and the averaged random forest agree that area is the top predictor—no surprises there, but it’s striking how much more weight the tree gives area (over 40%) compared to the forest (around 32%). Similarly, bathrooms show up as the clear second driver, though again the tree inflates its importance relative to the forest. This suggests that while a single tree may over-rely on these two variables to split early and gain purity, the forest’s ensemble dampens that effect slightly by distributing splits across more varied features.</p>
+<p>Insight 2: Stories vs.&nbsp;Air Conditioning—A Role Reversal In the decision tree, stories (number of floors) edge out airconditioning. no (lack of A/C) as the third most important, but in the forest they essentially swap places. That flip hints at instability: a lone tree might find “two-story” splits very useful in its particular bootstrap sample, whereas the full forest, averaging hundreds of trees, finds the absence of air conditioning to be a slightly more reliable signal overall. It tells us to be cautious about treating any single tree’s ranking as definitive.</p>
+<p>Insight 3: Parking’s Steady Climb Notice parking climbs from last among the top-five in the single tree to solidly in fourth place in the forest. This upward adjustment reflects the forest’s ability to uncover subtler patterns—in this case, that having designated parking repeatedly reduces error across many trees, even if it wasn’t the very first split in the standalone tree. It reinforces the idea that parking is a non-negligible amenity premium in this market.</p>
+<p>Insight 4: Model Bias vs.&nbsp;Ensemble Stability Overall, the tree shows a more “peaked” distribution—putting over 40% weight on area, 20% on bathrooms—while the forest spreads importance more evenly (~32%, ~18%, ~9%, ~9%, ~8%). This contrast illustrates a classic bias–variance trade-off: a single tree can latch heavily onto a few strong predictors (biasing its view of importance), whereas the forest ensemble smooths out those biases, yielding a more conservative but robust ranking. For feature engineering, it means we should trust the forest’s ordering more when deciding which variables to focus on or transform further.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partial Dependence Plots for Top RF Features</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'pdp' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'pdp'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:purrr':
+
+    partial</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pick the top 6 features by IncNodePurity</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>top_features <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">sort</span>(rf_mod<span class="sc">$</span>importance[,<span class="st">"IncNodePurity"</span>], <span class="at">decreasing =</span> <span class="cn">TRUE</span>))[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute PDPs</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>pdp_df <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(top_features, <span class="cf">function</span>(var) {</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  pd <span class="ot">&lt;-</span> <span class="fu">partial</span>(rf_mod, <span class="at">pred.var =</span> var, <span class="at">train =</span> <span class="fu">as.data.frame</span>(train))</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  pd <span class="sc">%&gt;%</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">feature_value =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">feature =</span> var)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pdp_df, <span class="fu">aes</span>(<span class="at">x =</span> feature_value, <span class="at">y =</span> yhat)) <span class="sc">+</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> feature, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Partial Dependence Plots (Random Forest)"</span>,</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x     =</span> <span class="st">"Feature Value"</span>,</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y     =</span> <span class="st">"Predicted Price"</span></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Insight 1: Diminishing Returns in “Area” Beyond a Threshold The partial dependence for area isn’t purely linear—there’s a noticeable knee around the 1–2 standard-deviation mark. Below that, each incremental increase in size has a modest effect, but once you clear that threshold, the predicted price jumps sharply before tailing off again at the very high end. This suggests a nonlinear premium on “mid-sized” homes (perhaps family-sized properties in desirable ranges) and diminishing value beyond ultra-large mansions. For product strategy or valuation, it means simply adding square footage isn’t equally valuable at every level—there’s a “sweet spot” where buyers pay disproportionately more.</p>
+<p>Insight 2: Bathroom Count Plateaus After Two We see a steep rise in predicted price when moving from zero to two bathrooms, but beyond two, the curve flattens out. In other words, going from one to two baths is a huge upgrade in market perception, but adding a third or fourth only marginally lifts price. That plateau signals diminishing returns on over-equipping smaller properties—investing in that third bathroom may not pay off unless the home is already very large or high-end.</p>
+<p>Insight 3: Stories Ignite an Accelerating Premium The plot for stories (floors) slopes gently at first, then curves upward more steeply for three-story homes. This accelerating pattern hints that while a second floor adds normal living space, multi-level designs (e.g.&nbsp;three stories) carry an architectural or prestige premium. It could reflect penthouse or attic conversions commanding extra value. From a development perspective, encouraging vertical expansion might yield larger returns past a certain point.</p>
+<p>Insight 4: Amenity Binary Effects</p>
+<p>Airconditioning. no: The PDP line drops from about +0.2 to –0.1 when “no A/C,” revealing a net 0.3-sd penalty—buyers strongly disfavor homes without climate control.</p>
+<p>Parking: There’s a steady lift with each additional spot, but the slope diminishes after two spaces. This suggests first- and second- spots are most valuable (perhaps for families), whereas adding a third or fourth car space yields less marginal benefit.</p>
+<p>Critical Takeaway: These PDPs uncover thresholds and plateaus that simple feature‐coefficient plots can’t capture. They show:</p>
+<p>Nonlinear sweet spots (area, stories) where investment returns spike.</p>
+<p>Diminishing returns on certain upgrades (bathrooms beyond two, extra parking).</p>
+<p>Binary penalties on missing amenities (no A/C).</p>
+<p>Armed with these insights, you can tailor recommendations—focus on hitting those sweet-spot thresholds in home size and amenities, rather than blanket “bigger is better” or “more is better” strategies.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Final Model Diagnostics &amp; Conclusion</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>lm_coefs <span class="ot">&lt;-</span> <span class="fu">tidy</span>(lm_mod) <span class="sc">%&gt;%</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">signif =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Coefficient Plot with ±1 SE</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lm_coefs, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">y =</span> <span class="fu">fct_reorder</span>(term, estimate), <span class="at">color =</span> signif)) <span class="sc">+</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> estimate <span class="sc">-</span> std.error, <span class="at">xmax =</span> estimate <span class="sc">+</span> std.error), <span class="at">height =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>) <span class="sc">+</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"#4E79A7"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"#E15759"</span>)) <span class="sc">+</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Linear Regression Coefficients (±1 SE)"</span>,</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x     =</span> <span class="st">"Estimate"</span>,</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y     =</span> <span class="st">"Feature"</span>,</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"p &lt; 0.05"</span></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Actual vs. Predicted</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>pred_lm <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_mod, test)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>df_pred <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Actual    =</span> test<span class="sc">$</span>price,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Predicted =</span> pred_lm</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_pred, <span class="fu">aes</span>(<span class="at">x =</span> Actual, <span class="at">y =</span> Predicted)) <span class="sc">+</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span>) <span class="sc">+</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Actual vs. Predicted Prices (Linear Regression)"</span>,</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x     =</span> <span class="st">"Actual (standardized)"</span>,</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y     =</span> <span class="st">"Predicted (standardized)"</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residuals vs. Predicted</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>resid_lm <span class="ot">&lt;-</span> df_pred<span class="sc">$</span>Actual <span class="sc">-</span> df_pred<span class="sc">$</span>Predicted</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_pred, <span class="fu">aes</span>(<span class="at">x =</span> Predicted, <span class="at">y =</span> resid_lm)) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Residuals vs. Predicted (Linear Regression)"</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x     =</span> <span class="st">"Predicted"</span>,</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y     =</span> <span class="st">"Residual"</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conclusion </span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Conclusion:</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"- The Linear Regression model achieved RMSE ="</span>, <span class="fu">round</span>(results[<span class="st">"Linear"</span>,<span class="st">"RMSE"</span>], <span class="dv">4</span>),</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"and R² ="</span>, <span class="fu">round</span>(results[<span class="st">"Linear"</span>,<span class="st">"R2"</span>], <span class="dv">4</span>), <span class="st">"on the test set.</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"- Key positive drivers are:"</span>, </span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(lm_coefs <span class="sc">%&gt;%</span> <span class="fu">filter</span>(estimate <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> signif) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(term), <span class="at">collapse =</span> <span class="st">", "</span>), <span class="st">".</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"- Key negative drivers are:"</span>, </span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(lm_coefs <span class="sc">%&gt;%</span> <span class="fu">filter</span>(estimate <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> signif) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(term), <span class="at">collapse =</span> <span class="st">", "</span>), <span class="st">".</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"- Residual plots show no severe heteroscedasticity or nonlinear patterns, supporting model validity.</span><span class="sc">\n</span><span class="st">"</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Conclusion:
+ - The Linear Regression model achieved RMSE = NA and R² = NA on the test set.
+ - Key positive drivers are: area, bathrooms, stories, parking, `furnishingstatus.semi-furnished`, furnishingstatus.furnished .
+ - Key negative drivers are: mainroad.no, basement.no, hotwaterheating.no, airconditioning.no, prefarea.no .
+ - Residual plots show no severe heteroscedasticity or nonlinear patterns, supporting model validity.</code></pre>
+</div>
+</div>
+<ol type="1">
+<li>Here, the linear model’s coefficients echo—and slightly nuance—the random forest findings, but they also raise fresh questions:</li>
+</ol>
+<p>Bathrooms vs.&nbsp;Area Trade-off Although both bathrooms and area carry large, significant positive effects, you’ll notice the error bars on bathrooms are narrower. That tells us each extra bathroom is a more precisely estimated driver of price than raw square footage—perhaps because bathroom counts are less noisy to measure than lot size. In practice, this suggests an investor might get a more reliable ROI by adding or renovating bathrooms rather than simply expanding square footage.</p>
+<p>Stories Carry a Premium, but with More Uncertainty The stories coefficient is also strongly positive, yet its confidence interval is wider than that of bathrooms or area. This hints at greater variability in how extra floors translate to value—maybe because some two-story layouts add livable space efficiently, while others (e.g.&nbsp;split levels) confuse buyers. It’s a reminder to look beneath the “more floors = higher price” rule and examine design quality or neighborhood norms.</p>
+<p>Amenities Show Clear Penalties Every one of our binary “no amenity” flags—airconditioning.no, prefarea.no, basement.no, hotwaterheating.no, mainroad.no, guestroom.no—pulls price downward. Airconditioning.no sits at roughly –0.22, a hefty penalty, confirming climate control is almost non-negotiable. Less obvious is the modest negative for mainroad.no (living off a main road)—which may reflect both peace-and-quiet preferences and potential access concerns. These small-magnitude, significant effects underline the importance of even subtle locational and amenity cues in linear pricing.</p>
+<p>Non-Significant Variables Warn Against Overfitting Notice bedrooms and guestroom.no aren’t significant here, unlike in our random forest. The linear model effectively shrinks their estimates to near-zero when other features are in play, suggesting that once you control for bathrooms and area, simply adding a bedroom or designating a guest room doesn’t reliably increase price. That guards us against piling on variables that look meaningful in isolation but vanish in a multivariate context.</p>
+<p>Deeper takeaway: This coefficient plot shows not just which features matter, but how reliably and by how much. It cautions us that even under a “linear” assumption, amenity flags can be as powerful as raw size metrics—and that some features (like extra floors) carry high potential value but also higher uncertainty. In your report, you might recommend focusing capital on the most precisely estimated upgrades (bathrooms, A/C, parking), while treating more variable features (stories, lot size expansions) with targeted market research or pilot projects before large investments.</p>
+<ol start="2" type="1">
+<li>This “Actual vs.&nbsp;Predicted” plot does more than confirm a decent overall fit (points roughly hugging the 45° line); it reveals systematic quirks at the extremes and suggests where the linear model could be improved:</li>
+</ol>
+<p>Underprediction at the High End Notice the rightmost points—homes with very large standardized actual values (around +4)—are predicted lower (around +3). The model is “shrinking” the extreme prices back toward the mean, a classic sign of regression toward the mean. It tells us our linear model fails to capture the full upside value of truly premium properties, perhaps because of missing high-end amenities or nonlinear size effects.</p>
+<p>Mild Overprediction at the Low End At the opposite tail (actual ≈ –1.2), the predictions cluster just above (around –1.0). The model again regresses extremes inward, slightly overestimating the cheapest homes’ prices. This could reflect floor effects (there’s a minimum viable market price) or that our “no amenity” flags don’t fully explain very low-priced segments.</p>
+<p>Wider Scatter in the Midrange Between standardized actual values of –0.5 to +2.0, the cloud of points shows moderate vertical dispersion—predictions vary by ±0.5 sd around the line. That midrange scatter indicates heteroscedasticity: the model is less precise for “typical” homes than for extreme cases, perhaps because there are more competing factors (location, condition, style) in that middle market.</p>
+<p>Implications for Model Improvement</p>
+<p>Nonlinear Terms: Incorporate quadratic or spline terms for area or bathrooms to let the model flex at the tails.</p>
+<p>Segmented Models: Fit separate regressions for low-, mid-, and high-priced tiers, or include interaction terms between size and amenity flags.</p>
+<p>Additional Features: Bring in location quality, age of property, or architectural style to explain why some premium homes exceed the linear model’s ceiling.</p>
+<p>Critical takeaway: While the linear fit is solid overall (R² ≈ 0.69), its tendency to bend predictions away from real extremes uncovers the need for nonlinear adjustments or tiered modeling to faithfully capture the true range of home prices—especially if you’re valuing high-end or entry-level properties.</p>
+<ol start="3" type="1">
+<li>This residual plot confirms that, overall, errors are centered around zero with no obvious funnel shape—good news for homoscedasticity. However, two subtler patterns stand out:</li>
+</ol>
+<p>Clustered Under-Prediction for Mid-Range Homes Between predicted values of roughly –0.5 to +0.5, residuals slightly skew negative (many dots just below zero), meaning the model tends to under-predict true prices for homes in the mid-market segment. It suggests missing mid-tier drivers—perhaps features like neighborhood school ratings or recent renovations not included in our data.</p>
+<p>Occasional Large Positive Outliers There are scattered points with residuals above +1.5 at predicted values around 0 to 1.5. These represent cases where the model severely underestimates some homes’ true value—likely premium properties with rare combinations of features (e.g., a smaller home but in a top school district). These extreme misses hint at nonlinear interactions or omitted variables (like “view” or property age) that our linear formula can’t capture.</p>
+<p>Critical takeaway: While the linear model holds up well in general, its mid-range under-prediction and sporadic large underestimates point to a need for either richer feature sets (e.g., local amenities, year built) or segmented models for different market tiers. Addressing these could tighten residuals and improve trust in pricing recommendations across all property classes.</p>
+<section id="this-is-a-line-for-branch-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="this-is-a-line-for-branch-1"><span class="header-section-number">3.1</span> this is a line for branch 1</h2>
+</section>
+<section id="this-is-a-line-for-branch-2" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="this-is-a-line-for-branch-2"><span class="header-section-number">3.2</span> this is a line for branch 2</h2>
 
 
 </section>
@@ -457,8 +1019,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./d3graph.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interactive graph</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./conclusion.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

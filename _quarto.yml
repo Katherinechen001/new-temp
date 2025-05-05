@@ -6,9 +6,9 @@ execute:
   echo: true
 
 book:
-  title: "studios-pancake"
+  title: "Predicting Housing Prices"
   author:
-    - Katherine (sc5650)
+    - Katherine Chen (sc5650)
   repo-url: https://github.com/Katherinechen001/new-temp
   date: today
   page-footer:
@@ -19,7 +19,6 @@ book:
     - index.qmd
     - data.qmd
     - results.qmd
-    - d3graph.qmd
     - conclusion.qmd
 
 format:

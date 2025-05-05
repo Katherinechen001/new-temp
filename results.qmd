@@ -1,26 +1,5 @@
 # Results
 
-## First result
-
-## Second result
-
----
-title: "Housing Price Prediction Analysis"
-author: Katherine Chen
-execute:
-  echo: true
-format:
-  html:
-    fig-width: 6
-    fig-height: 4
-    out-width: 60%
-    embed-resources: true
----
-
-```{r}
-getwd()
-```
-
 ```{r}
 #import data
 library(tidyverse)
@@ -34,17 +13,9 @@ library(rpart)
 
 # Read the data and eliminate the rows containing NA
 set.seed(1234)
-data_raw <- read.csv("~/Desktop/datasets/Housing.csv",
-                     header = TRUE, quote = "\"",
-                     stringsAsFactors = FALSE) %>%
-            na.omit()
 
-head(data_raw)
-str(data_raw)
+data_raw <- read.csv("data/Housing.csv")
 
-```
-
-```{r}
 #Factor transformation
 data <- data_raw %>%
   mutate(

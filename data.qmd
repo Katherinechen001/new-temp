@@ -1,8 +1,21 @@
 # Data
 
-## Description
+```{r}
+#import data
+library(tidyverse)
+library(caret)
+library(lattice)
+library(car)
+library(corrplot)
+library(glmnet)  
+library(randomForest)
+library(rpart)
 
-## Missing value analysis
+# Read the data and eliminate the rows containing NA
+set.seed(1234)
 
+data_raw <- read.csv("data/Housing.csv")
+head(data_raw)
+# str(data_raw)
+```
 
-#### this is a line for branch 1

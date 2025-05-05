@@ -2,36 +2,29 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "studios-pancake",
+    "title": "Predicting Housing Prices",
     "section": "",
-    "text": "1 Introduction"
+    "text": "1 Introduction\nIntroduction The US housing market is affected by multiple factors that result from property physical characteristics, the location related and structural feature. For would-be buyers and sellers, real estate professionals, policy-makers and investors who are seeking data-driven insights, knowing what is behind the price of a house is important. In this experiment, I analyzed what the most important factors are behind the housing price in the Us with a Kaggle dataset (545 observations and 13 features) with what I would call intuitive variables such as area, bedrooms, bathrooms, whether the house has any amenities (e.g., guestroom, basement, air condition) and furnishing status. To perform this analysis I use a set of regression methods — Linear Regression, Ridge Regression, Lasso Regression, Elastic Net, and K-Nearest Neighbors (KNN) Regressor. These models are measured by a set of error indicators such as MAE, MSE, RMSE, and R². Comparing these models’ performance, I determined the best method in predicting the price of a house. I then look at the feature importances to see which feature of a listing has the greatest effect on the price. Finally, visualizations and prediction results are shown to aid interpretation and validate the conclusions. This report seeks to develop an empirical, data-based overview of US house price dynamics and to provide a simple approach as to what factors contribute most to house prices."
   },
   {
-    "objectID": "data.html#description",
-    "href": "data.html#description",
+    "objectID": "data.html",
+    "href": "data.html",
     "title": "2  Data",
-    "section": "2.1 Description",
-    "text": "2.1 Description"
+    "section": "",
+    "text": "Code\n#import data\nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nCode\nlibrary(caret)\n\n\nLoading required package: lattice\n\nAttaching package: 'caret'\n\nThe following object is masked from 'package:purrr':\n\n    lift\n\n\nCode\nlibrary(lattice)\nlibrary(car)\n\n\nLoading required package: carData\n\nAttaching package: 'car'\n\nThe following object is masked from 'package:dplyr':\n\n    recode\n\nThe following object is masked from 'package:purrr':\n\n    some\n\n\nCode\nlibrary(corrplot)\n\n\ncorrplot 0.92 loaded\n\n\nCode\nlibrary(glmnet)  \n\n\nWarning: package 'glmnet' was built under R version 4.3.3\n\n\nLoading required package: Matrix\n\nAttaching package: 'Matrix'\n\nThe following objects are masked from 'package:tidyr':\n\n    expand, pack, unpack\n\nLoaded glmnet 4.1-8\n\n\nCode\nlibrary(randomForest)\n\n\nWarning: package 'randomForest' was built under R version 4.3.3\n\n\nrandomForest 4.7-1.2\nType rfNews() to see new features/changes/bug fixes.\n\nAttaching package: 'randomForest'\n\nThe following object is masked from 'package:dplyr':\n\n    combine\n\nThe following object is masked from 'package:ggplot2':\n\n    margin\n\n\nCode\nlibrary(rpart)\n\n\nWarning: package 'rpart' was built under R version 4.3.3\n\n\nCode\n# Read the data and eliminate the rows containing NA\nset.seed(1234)\n\ndata_raw &lt;- read.csv(\"data/Housing.csv\")\nhead(data_raw)\n\n\n     price area bedrooms bathrooms stories mainroad guestroom basement\n1 13300000 7420        4         2       3      yes        no       no\n2 12250000 8960        4         4       4      yes        no       no\n3 12250000 9960        3         2       2      yes        no      yes\n4 12215000 7500        4         2       2      yes        no      yes\n5 11410000 7420        4         1       2      yes       yes      yes\n6 10850000 7500        3         3       1      yes        no      yes\n  hotwaterheating airconditioning parking prefarea furnishingstatus\n1              no             yes       2      yes        furnished\n2              no             yes       3       no        furnished\n3              no              no       2      yes   semi-furnished\n4              no             yes       3      yes        furnished\n5              no             yes       2       no        furnished\n6              no             yes       2      yes   semi-furnished\n\n\nCode\n# str(data_raw)"
   },
   {
-    "objectID": "data.html#missing-value-analysis",
-    "href": "data.html#missing-value-analysis",
-    "title": "2  Data",
-    "section": "2.2 Missing value analysis",
-    "text": "2.2 Missing value analysis"
-  },
-  {
-    "objectID": "results.html#first-result",
-    "href": "results.html#first-result",
+    "objectID": "results.html#this-is-a-line-for-branch-1",
+    "href": "results.html#this-is-a-line-for-branch-1",
     "title": "3  Results",
-    "section": "3.1 First result",
-    "text": "3.1 First result"
+    "section": "3.1 this is a line for branch 1",
+    "text": "3.1 this is a line for branch 1"
   },
   {
-    "objectID": "results.html#second-result",
-    "href": "results.html#second-result",
+    "objectID": "results.html#this-is-a-line-for-branch-2",
+    "href": "results.html#this-is-a-line-for-branch-2",
     "title": "3  Results",
-    "section": "3.2 Second result",
-    "text": "3.2 Second result\n\n\nCode\nlibrary(ggplot2)"
+    "section": "3.2 this is a line for branch 2",
+    "text": "3.2 this is a line for branch 2"
   }
 ]
