@@ -12,4 +12,8 @@
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="scripts/myscript.js"></script>
 
+<<<<<<< HEAD
 change on Github
+=======
+d3graph lol 
+>>>>>>> 9e62494c8164059e7d427b2cbd0bd73c0e8b2731
