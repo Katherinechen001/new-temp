@@ -229,6 +229,18 @@ Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives 
 
 Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.
 
+**Categorical Amenities Add Tangible Value**
+
+Noticing that `airconditioning.no` (lack of air conditioning) and parking are among the most impure‐important. This tells us buyers penalize homes without a/c and reward those with parking more than, say, extra bedrooms or a semi‐furnished status.
+
+The bar on the chart for `airconditioning.no` are smaller values than `area`/`bathrooms` but still quite significant, which suggests a/c is almost just as important as having more than one story or bathroom.
+
+This brought a question that “Might `airconditioning.no` be picking up on a deeper underlying factor such as older homes, lower-income neighborhoods or properties lacking other modern-day amenities?”  It might be interesting to stratify by age or location to check for absence in a/c is essentially serving as a proxy for something else.
+
+**Weak Features and Overfitting Risk**
+
+Towards the bottom of the chart shows that `guestroom.no`, `furnishingstatus.furnished` and `hotwaterheating.no` with minimal importance. In a more simple linear model, these may still receive non zero coefficients, but the Random Forest basically completely “ignores” them. The reason for this is because: their real impact on price is negligible though, or these binary splits rarely do anything to help homogeneity once the big kings (`area`, `a/c`, `bathrooms`) are on the board. Before dropping these variables completely, however, it is considerable to think about whether they may have nonlinear interactions, or only be important at certain sub-markets (eg. high-end furnished units).
+
 ### Partial Dependence Plot 
 
 After seeing which features matter most in the Random Forest, I wanted to understand how they influence price. The feature‐importance plot told me that area, bathrooms, air-conditioning, parking, and stories are the top drivers. But it didn’t reveal whether their effects are strictly linear, exhibit thresholds, or show diminishing returns.
@@ -267,18 +279,6 @@ ggplot(pdp_df, aes(x = feature_value, y = yhat)) +
 
 - Adjusting `area` for the neighborhood average (so it can fill it with “premium” square footage, not just square footage).
 - Including interactions (e.g. area × stories) to test whether extra space on higher floors sells at a price premium.
-
-**Categorical Amenities Add Tangible Value**
-
-Noticing that `airconditioning.no` (lack of air conditioning) and parking are among the most impure‐important. This tells us buyers penalize homes without a/c and reward those with parking more than, say, extra bedrooms or a semi‐furnished status.
-
-The bar on the chart for `airconditioning.no` are smaller values than `area`/`bathrooms` but still quite significant, which suggests a/c is almost just as important as having more than one story or bathroom.
-
-This brought a question that “Might `airconditioning.no` be picking up on a deeper underlying factor such as older homes, lower-income neighborhoods or properties lacking other modern-day amenities?”  It might be interesting to stratify by age or location to check for absence in a/c is essentially serving as a proxy for something else.
-
-**Weak Features and Overfitting Risk**
-
-Towards the bottom of the chart shows that `guestroom.no`, `furnishingstatus.furnished` and `hotwaterheating.no` with minimal importance. In a more simple linear model, these may still receive non zero coefficients, but the Random Forest basically completely “ignores” them. The reason for this is because: their real impact on price is negligible though, or these binary splits rarely do anything to help homogeneity once the big kings (`area`, `a/c`, `bathrooms`) are on the board. Before dropping these variables completely, however, it is considerable to think about whether they may have nonlinear interactions, or only be important at certain sub-markets (eg. high-end furnished units).
 
 **Critical Takeaway**
 
