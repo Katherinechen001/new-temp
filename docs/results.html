@@ -189,7 +189,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#partial-dependence-plot" id="toc-partial-dependence-plot" class="nav-link" data-scroll-target="#partial-dependence-plot"><span class="header-section-number">5.3.1</span> Partial Dependence Plot</a></li>
   <li><a href="#importance-rankings" id="toc-importance-rankings" class="nav-link" data-scroll-target="#importance-rankings"><span class="header-section-number">5.3.2</span> Importance rankings</a></li>
   <li><a href="#actual-vs.-predicted" id="toc-actual-vs.-predicted" class="nav-link" data-scroll-target="#actual-vs.-predicted"><span class="header-section-number">5.3.3</span> Actual vs.&nbsp;Predicted</a></li>
-  <li><a href="#shap-explanation-for-linear-regression" id="toc-shap-explanation-for-linear-regression" class="nav-link" data-scroll-target="#shap-explanation-for-linear-regression"><span class="header-section-number">5.3.4</span> SHAP Explanation for Linear Regression</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/results.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -702,17 +701,6 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 We have some observations with residuals &gt; +1.5, which could be extreme cases where the model doesn’t capture premium value for whatever reason (missing features, such as school district, view, or year built).</li>
 <li><strong>Takeaway:</strong> Though the residuals look sensible overall, targeted feature engineering (probably based on neighborhood or home age) may fix some of these larger misses and rein in mid-tier predictions.</li>
 </ul>
-</section>
-<section id="shap-explanation-for-linear-regression" class="level3" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="shap-explanation-for-linear-regression"><span class="header-section-number">5.3.4</span> SHAP Explanation for Linear Regression</h3>
-<p>Although linear regression gives interpretable coefficients, it assumes that the relationship between the predictors and the target are additive and linear. We check consistency and provide an additional way to confirm the real relevance of every feature on the individual predictions by same SHAP (SHapley Additive exPlanations) being computed, based on the fastshap package.</p>
-<p>library(fastshap) library(ggplot2)</p>
-<p>X_train &lt;- subset(train_data, select = -price)</p>
-<p>pred_fun &lt;- function(object, newdata) { predict(object, newdata = newdata) }</p>
-<p>shap_lm &lt;- explain( object = lm_model, X = X_train, pred_wrapper = pred_fun, nsim = 100<br>
-)</p>
-<p>p1 &lt;- autoplot(shap_lm, X = X_train) + ggtitle(“SHAP Summary for Linear Regression Model”) print(p1)</p>
-<p>p2 &lt;- autoplot(shap_lm, type = “contribution”, row_num = 1, X = X_train) + ggtitle(“SHAP Explanation for Observation 1”) print(p2)</p>
 
 
 </section>
