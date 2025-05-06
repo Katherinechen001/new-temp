@@ -423,7 +423,7 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 </section>
 <section id="visualization-highlights" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="visualization-highlights"><span class="header-section-number">5.3</span> Visualization Highlights</h2>
-<p>To better understand how feature influence predictions, these are the findings which were found:</p>
+<p>Before diving into any one model’s numeric performance, I wanted to quickly see which variables the most flexible, nonparametric learner regards as most useful.Random Forests naturally rank features by how much they reduce error or increase node purity—so this chart immediately highlights the top drivers.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -476,6 +476,11 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 <p><img src="results_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>As we can see, <code>area</code> has a major character in both IncNodePurity and permutation-based importance, which means larger homes require higher prices. However as mentioned before the model relies too heavily on area and this will bring the risk of ignoring subtler-still meaningful signals in the data. Houses growing from under average to about half size increases its predicted price dramatically, especially in the area around 1-2 standard deviations above the mean. But beyond this “sweet spot,” price appreciation trails off, implying that ultra-large homes bring little in the way of incremental value unless they’re in the luxury bracket.</p>
+<p>Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives a large increase in home value, which is perhaps a more practical requirement for families. But a third or fourth bathroom does little unless it is combined with other upscale features such as extra stories or square footage.</p>
+<p>Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.</p>
+<p>After seeing which features matter most in the Random Forest, I wanted to understand how they influence price. The feature‐importance plot told me that area, bathrooms, air-conditioning, parking, and stories are the top drivers. But it didn’t reveal whether their effects are strictly linear, exhibit thresholds, or show diminishing returns.</p>
+<p>That’s why I produced the partial dependence plots. These six small plots trace each top predictor’s marginal impact on the model’s output, holding all other variables constant.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -509,9 +514,6 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 <p><img src="results_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>As mentioned above, <code>area</code> has a major character in both IncNodePurity and permutation-based importance, which means larger homes require higher prices. However as mentioned before the model relies too heavily on area and this will bring the risk of ignoring subtler-still meaningful signals in the data. Houses growing from under average to about half size increases its predicted price dramatically, especially in the area around 1-2 standard deviations above the mean. But beyond this “sweet spot,” price appreciation trails off, implying that ultra-large homes bring little in the way of incremental value unless they’re in the luxury bracket.</p>
-<p>Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives a large increase in home value, which is perhaps a more practical requirement for families. But a third or fourth bathroom does little unless it is combined with other upscale features such as extra stories or square footage.</p>
-<p>Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.</p>
 <p><strong>Improvement and Refinements:</strong></p>
 <ul>
 <li>Adjusting <code>area</code> for the neighborhood average (so it can fill it with “premium” square footage, not just square footage).</li>
@@ -525,6 +527,7 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 <p>Towards the bottom of the chart shows that <code>guestroom.no</code>, <code>furnishingstatus.furnished</code> and <code>hotwaterheating.no</code> with minimal importance. In a more simple linear model, these may still receive non zero coefficients, but the Random Forest basically completely “ignores” them. The reason for this is because: their real impact on price is negligible though, or these binary splits rarely do anything to help homogeneity once the big kings (<code>area</code>, <code>a/c</code>, <code>bathrooms</code>) are on the board. Before dropping these variables completely, however, it is considerable to think about whether they may have nonlinear interactions, or only be important at certain sub-markets (eg. high-end furnished units).</p>
 <p><strong>Critical Takeaway</strong></p>
 <p><code>area</code> and <code>bathrooms</code> are left right where sellers would expect to see them, as the “headline” determinants of price point, while the next tier (air conditioning, parking, stories) illustrate an amenity driven market of housing. However, the overwhelming importance of area screams that it is necessary to have a better feature engineering for it - for example, maybe normalizing by lot size or adding something non-linear based on location/area, and forcing the model to learn some more complex story than <strong>“bigger = more expensive.”</strong></p>
+<p>Having seen the overall importance rankings in Plot 1 and the detailed marginal effects in Plot 2, Plot 3 lets me check how a single decision tree would have ranked those same top drivers compared to the ensemble forest.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>

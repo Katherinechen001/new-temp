@@ -176,7 +176,7 @@ Some categorical features (e.g., `airconditioning`, `basement`, `guestroom`) exh
 - **Basement and Guestroom** also had noticeable effects, but their utility appears to be highly context-dependent—e.g., basements may be more valued in suburban regions than urban cores or flood-prone zones.
 
 ## Visualization Highlights
-To better understand how feature influence predictions, these are the findings which were found:
+Before diving into any one model’s numeric performance, I wanted to quickly see which variables the most flexible, nonparametric learner regards as most useful.Random Forests naturally rank features by how much they reduce error or increase node purity—so this chart immediately highlights the top drivers.
 ```{r}
 # IncNodePurity: total reduction in node impurity (variance) when splitting on that feature
 # X.IncMSE: increase in out‐of‐bag MSE if we randomly permute that feature (i.e. how much error jumps when the feature is “hidden”)
@@ -223,6 +223,16 @@ ggplot(rf_imp, aes(
     strip.text      = element_text(face = "bold")
   )
 ```
+As we can see, `area` has a major character in both IncNodePurity and permutation-based importance, which means larger homes require higher prices. However as mentioned before the model relies too heavily on area and this will bring the risk of ignoring subtler-still meaningful signals in the data. Houses growing from under average to about half size increases its predicted price dramatically, especially in the area around 1-2 standard deviations above the mean. But beyond this “sweet spot,” price appreciation trails off, implying that ultra-large homes bring little in the way of incremental value unless they're in the luxury bracket.
+
+Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives a large increase in home value, which is perhaps a more practical requirement for families. But a third or fourth bathroom does little unless it is combined with other upscale features such as extra stories or square footage.
+
+Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.
+
+
+After seeing which features matter most in the Random Forest, I wanted to understand how they influence price. The feature‐importance plot told me that area, bathrooms, air-conditioning, parking, and stories are the top drivers. But it didn’t reveal whether their effects are strictly linear, exhibit thresholds, or show diminishing returns.
+
+That’s why I produced the partial dependence plots. These six small plots trace each top predictor’s marginal impact on the model’s output, holding all other variables constant.
 ```{r}
 # Partial Dependence Plots for Top RF Features
 
@@ -251,11 +261,6 @@ ggplot(pdp_df, aes(x = feature_value, y = yhat)) +
   theme_minimal()
 
 ```
-As mentioned above, `area` has a major character in both IncNodePurity and permutation-based importance, which means larger homes require higher prices. However as mentioned before the model relies too heavily on area and this will bring the risk of ignoring subtler-still meaningful signals in the data. Houses growing from under average to about half size increases its predicted price dramatically, especially in the area around 1-2 standard deviations above the mean. But beyond this “sweet spot,” price appreciation trails off, implying that ultra-large homes bring little in the way of incremental value unless they're in the luxury bracket.
-
-Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives a large increase in home value, which is perhaps a more practical requirement for families. But a third or fourth bathroom does little unless it is combined with other upscale features such as extra stories or square footage.
-
-Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.
 
 **Improvement and Refinements:**
 
@@ -278,6 +283,8 @@ Towards the bottom of the chart shows that `guestroom.no`, `furnishingstatus.fur
 
 `area` and `bathrooms` are left right where sellers would expect to see them, as the “headline” determinants of price point, while the next tier (air conditioning, parking, stories) illustrate an amenity driven market of housing. However, the overwhelming importance of area screams that it is necessary to have a better feature engineering for it - for example, maybe normalizing by lot size or adding something non-linear based on location/area, and forcing the model to learn some more complex story than **“bigger = more expensive.”**
 
+
+Having seen the overall importance rankings in Plot 1 and the detailed marginal effects in Plot 2, Plot 3 lets me check how a single decision tree would have ranked those same top drivers compared to the ensemble forest. 
 ```{r}
 #Feature importance
 # Fit a simple decision tree
