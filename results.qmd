@@ -223,6 +223,34 @@ ggplot(rf_imp, aes(
     strip.text      = element_text(face = "bold")
   )
 ```
+```{r}
+# Partial Dependence Plots for Top RF Features
+
+library(pdp)
+library(purrr)
+
+# Pick the top 6 features by IncNodePurity
+top_features <- names(sort(rf_mod$importance[,"IncNodePurity"], decreasing = TRUE))[1:6]
+
+# Compute PDPs
+pdp_df <- map_dfr(top_features, function(var) {
+  pd <- partial(rf_mod, pred.var = var, train = as.data.frame(train))
+  pd %>%
+    rename(feature_value = 1) %>%
+    mutate(feature = var)
+})
+
+ggplot(pdp_df, aes(x = feature_value, y = yhat)) +
+  geom_line() +
+  facet_wrap(~ feature, scales = "free_x") +
+  labs(
+    title = "Partial Dependence Plots (Random Forest)",
+    x     = "Feature Value",
+    y     = "Predicted Price"
+  ) +
+  theme_minimal()
+
+```
 As mentioned above, `area` has a major character in both IncNodePurity and permutation-based importance, which means larger homes require higher prices. However as mentioned before the model relies too heavily on area and this will bring the risk of ignoring subtler-still meaningful signals in the data. Houses growing from under average to about half size increases its predicted price dramatically, especially in the area around 1-2 standard deviations above the mean. But beyond this “sweet spot,” price appreciation trails off, implying that ultra-large homes bring little in the way of incremental value unless they're in the luxury bracket.
 
 Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives a large increase in home value, which is perhaps a more practical requirement for families. But a third or fourth bathroom does little unless it is combined with other upscale features such as extra stories or square footage.
