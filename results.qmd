@@ -22,7 +22,10 @@ Some features seem to measure overlapping concepts: `area`, `stories`, and `bath
 Similarly, `prefarea` and `furnishingstatus` might each serve as a proxy for socioeconomic desirability (furnishing might simply echo neighborhood-based norms or buyer wealth), but neither clearly dominates on its own.
 
 **Binary Characteristics and Step-Value Effects:**  
-Some categorical features (e.g., `airconditioning`, `basement`, `g
+Some categorical features (e.g., `airconditioning`, `basement`, `guestroom`) exhibited step-function patterns in PDPs:
+
+- **Air conditioning** was on average associated with a large, positive shift in predicted price compared to homes without A/C.
+- **Basement and Guestroom** also had noticeable effects, but their utility appears to be highly context-dependent—e.g., basements may be more valued in suburban regions than urban cores or flood-prone zones.
 
 ## Visualization Highlights
 To better understand how feature influence predictions, these are the findings which were found:

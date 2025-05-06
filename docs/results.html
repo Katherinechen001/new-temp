@@ -243,7 +243,11 @@ ul.task-list li input[type="checkbox"] {
 Some features seem to measure overlapping concepts: <code>area</code>, <code>stories</code>, and <code>bathrooms</code> all relate to house size and livability. This suggests multicollinearity, and regularisation (Lasso/Ridge) will favor <code>area</code> as the most influential feature.<br>
 Similarly, <code>prefarea</code> and <code>furnishingstatus</code> might each serve as a proxy for socioeconomic desirability (furnishing might simply echo neighborhood-based norms or buyer wealth), but neither clearly dominates on its own.</p>
 <p><strong>Binary Characteristics and Step-Value Effects:</strong><br>
-Some categorical features (e.g., <code>airconditioning</code>, <code>basement</code>, `g</p>
+Some categorical features (e.g., <code>airconditioning</code>, <code>basement</code>, <code>guestroom</code>) exhibited step-function patterns in PDPs:</p>
+<ul>
+<li><strong>Air conditioning</strong> was on average associated with a large, positive shift in predicted price compared to homes without A/C.</li>
+<li><strong>Basement and Guestroom</strong> also had noticeable effects, but their utility appears to be highly context-dependent—e.g., basements may be more valued in suburban regions than urban cores or flood-prone zones.</li>
+</ul>
 </section>
 <section id="visualization-highlights" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="visualization-highlights"><span class="header-section-number">5.3</span> Visualization Highlights</h2>
