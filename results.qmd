@@ -15,8 +15,6 @@ set.seed(1234)
 data_raw <- read_csv("~/housing/data/Housing.csv")
 
 
-```
-```{r}
 #Factor transformation
 data <- data_raw %>%
   mutate(
@@ -37,8 +35,7 @@ data_dummies <- predict(dummy_mod, newdata = data) %>% as.data.frame()
 # Merge the "price" column
 data2_raw <- bind_cols(price = data$price, data_dummies)
 
-glimpse(data2_raw)
-#I want to make sure that all columns in data2_raw are of numeric type (dbl), and there are no original factor columns in the column names.
+
 
 ```
 ```{r}
@@ -60,9 +57,6 @@ train_summary <- train %>% summarise(across(everything(), list(mean = ~mean(.), 
 
 #Standardizing both predictors and the target (price) lets regularized models (Ridge, Lasso) work properly and makes error metrics comparable across features.
 
-
-```
-```{r}
 
 # Linear Regression
 lm_mod <- lm(price ~ ., data = train)
@@ -116,8 +110,7 @@ knn_mod <- train.kknn(
   kernel= "optimal"
 )
 
-```
-```{r}
+
 # define evaluation function 
 f <- function(true, pred) {
   mae  <- mean(abs(true - pred))
@@ -152,7 +145,7 @@ results <- rbind(
 
 
 best_model <- results %>% slice_min(RMSE, n = 1)
-cat("Best model by RMSE is:", best_model$Model, "\n")
+
 
 ```
 This section highlights the performance of each regression model and most importantly interprets key results from both numerical evaluation and feature analysis.
