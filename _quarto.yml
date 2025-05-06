@@ -20,6 +20,7 @@ book:
   repo-actions: [edit, issue]
   chapters:
     - index.qmd
+    - Objective.qmd
     - final.qmd
     - data.qmd
     - chapter21.qmd
