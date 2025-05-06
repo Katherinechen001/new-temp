@@ -434,3 +434,35 @@ Residuals centrally are slanted a bit towards underprediction for predicted valu
 We have some observations with residuals > +1.5, which could be extreme cases where the model doesn't capture premium value for whatever reason (missing features, such as school district, view, or year built).
 - **Takeaway:** 
 Though the residuals look sensible overall, targeted feature engineering (probably based on neighborhood or home age) may fix some of these larger misses and rein in mid-tier predictions.
+
+### SHAP Explanation for Linear Regression
+
+Although linear regression gives interpretable coefficients, it assumes that the relationship between the predictors and the target are additive and linear. We check consistency and provide an additional way to confirm the real relevance of every feature on the individual predictions by same SHAP (SHapley Additive exPlanations) being computed, based on the fastshap package.
+```{r}
+# Load library
+library(fastshap)
+library(ggplot2)
+
+# Prepare training features (remove target)
+X_train <- subset(train_data, select = -price)
+
+# Define prediction wrapper for linear model
+pred_fun <- function(object, newdata) {
+  predict(object, newdata = newdata)
+}
+
+# Generate SHAP values for linear regression
+shap_lm <- explain(
+  object = lm_model,
+  X = X_train,
+  pred_wrapper = pred_fun,
+  nsim = 100  # Increase for better estimates if needed
+)
+
+# Plot global SHAP summary
+autoplot(shap_lm, X = X_train) +
+  ggtitle("SHAP Summary for Linear Regression Model")
+
+# Plot local SHAP explanation for one observation
+autoplot(shap_lm, type = "contribution", row_num = 1, X = X_train) +
+  ggtitle("SHAP Explanation for Observation 1")
