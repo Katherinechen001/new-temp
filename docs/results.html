@@ -688,9 +688,14 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 <li><strong>Tiered Modeling:</strong> Split the data into low/mid/high priced homes and estimate different models (or including interaction terms)</li>
 <li><strong>Feature Enrichment:</strong> Incorporate geographic, school quality, or architectural characteristics that probably explain variation not captured in core variables.</li>
 </ul>
-<p><strong>Residual Analysis Confirms Homoscedasticity with Pockets of Concern</strong> The residuals vs.&nbsp;fitted plot suggests a generally homoscedastic model (errors are spread equally across the value 0), but it indicates two problems:</p>
-<p>-<strong>Mild Underprediction for Mid-Range Properties:</strong> Residuals centrally are slanted a bit towards underprediction for predicted values ranging between –0.5 and +0.5, especially for the systemically undervalued “average” houses— due perhaps to lacking some middle-of-the-market features (or maybe location quirks). -<strong>Extreme Underprediction for Certain Homes:</strong><br>
-We have some observations with residuals &gt; +1.5, which could be extreme cases where the model doesn’t capture premium value for whatever reason (missing features, such as school district, view, or year built). -<strong>Takeaway:</strong> Though the residuals look sensible overall, targeted feature engineering (probably based on neighborhood or home age) may fix some of these larger misses and rein in mid-tier predictions.</p>
+<p><strong>Residual Analysis Confirms Homoscedasticity with Pockets of Concern</strong></p>
+<p>The residuals vs.&nbsp;fitted plot suggests a generally homoscedastic model (errors are spread equally across the value 0), but it indicates two problems:</p>
+<ul>
+<li><strong>Mild Underprediction for Mid-Range Properties:</strong> Residuals centrally are slanted a bit towards underprediction for predicted values ranging between –0.5 and +0.5, especially for the systemically undervalued “average” houses— due perhaps to lacking some middle-of-the-market features (or maybe location quirks).</li>
+<li><strong>Extreme Underprediction for Certain Homes:</strong><br>
+We have some observations with residuals &gt; +1.5, which could be extreme cases where the model doesn’t capture premium value for whatever reason (missing features, such as school district, view, or year built).</li>
+<li><strong>Takeaway:</strong> Though the residuals look sensible overall, targeted feature engineering (probably based on neighborhood or home age) may fix some of these larger misses and rein in mid-tier predictions.</li>
+</ul>
 
 
 </section>
