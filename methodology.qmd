@@ -86,7 +86,61 @@ Five different models were implemented to predict house prices:
 - **Lasso Regression**  
 - **Elastic Net Regression**  
 - **K-Nearest Neighbors (KNN) Regression**
+```{r}
 
+# Linear Regression
+lm_mod <- lm(price ~ ., data = train)
+
+# Ridge Regression (α = 0)
+library(glmnet)
+ridge_cv  <- cv.glmnet(
+  x     = as.matrix(train[, -1]),
+  y     = train$price,
+  alpha = 0
+)
+ridge_mod <- glmnet(
+  x      = as.matrix(train[, -1]),
+  y      = train$price,
+  alpha  = 0,
+  lambda = ridge_cv$lambda.min
+)
+
+# Lasso Regression (α = 1)
+lasso_cv  <- cv.glmnet(
+  x     = as.matrix(train[, -1]),
+  y     = train$price,
+  alpha = 1
+)
+lasso_mod <- glmnet(
+  x     = as.matrix(train[, -1]),
+  y     = train$price,
+  alpha = 1,
+  lambda= lasso_cv$lambda.min
+)
+
+# Elastic Net (α = 0.5)
+enet_cv  <- cv.glmnet(
+  x     = as.matrix(train[, -1]),
+  y     = train$price,
+  alpha = 0.5
+)
+enet_mod <- glmnet(
+  x      = as.matrix(train[, -1]),
+  y      = train$price,
+  alpha  = 0.5,
+  lambda = enet_cv$lambda.min
+)
+
+# k-Nearest Neighbors
+library(kknn)
+knn_mod <- train.kknn(
+  price ~ .,
+  data  = train,
+  kmax  = 10,
+  kernel= "optimal"
+)
+
+```
 ---
 
 ## Model Evaluation Metrics
