@@ -223,31 +223,20 @@ ggplot(rf_imp, aes(
     strip.text      = element_text(face = "bold")
   )
 ```
-```{r}
-# Partial Dependence Plots for Top RF Features
+As mentioned above, `area` has a major character in both IncNodePurity and permutation-based importance, which means larger homes require higher prices. However as mentioned before the model relies too heavily on area and this will bring the risk of ignoring subtler-still meaningful signals in the data. Houses growing from under average to about half size increases its predicted price dramatically, especially in the area around 1-2 standard deviations above the mean. But beyond this “sweet spot,” price appreciation trails off, implying that ultra-large homes bring little in the way of incremental value unless they're in the luxury bracket.
 
-library(pdp)
-library(purrr)
+Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives a large increase in home value, which is perhaps a more practical requirement for families. But a third or fourth bathroom does little unless it is combined with other upscale features such as extra stories or square footage.
 
-# Pick the top 6 features by IncNodePurity
-top_features <- names(sort(rf_mod$importance[,"IncNodePurity"], decreasing = TRUE))[1:6]
+Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.
 
-# Compute PDPs
-pdp_df <- map_dfr(top_features, function(var) {
-  pd <- partial(rf_mod, pred.var = var, train = as.data.frame(train))
-  pd %>%
-    rename(feature_value = 1) %>%
-    mutate(feature = var)
-})
+**Improvement and Refinements:**
+- Adjusting area for the neighborhood average (so it can fill it with “premium” square footage, not just square footage).
+- Including interactions (e.g. area × stories) to test whether extra space on higher floors sells at a price premium.
 
-ggplot(pdp_df, aes(x = feature_value, y = yhat)) +
-  geom_line() +
-  facet_wrap(~ feature, scales = "free_x") +
-  labs(
-    title = "Partial Dependence Plots (Random Forest)",
-    x     = "Feature Value",
-    y     = "Predicted Price"
-  ) +
-  theme_minimal()
+**Categorical Amenities Add Tangible Value**
 
-```
+Noticing that `airconditioning.no` (lack of air conditioning) and parking are among the most impure‐important. This tells us buyers penalize homes without a/c and reward those with parking more than, say, extra bedrooms or a semi‐furnished status.
+
+The bar on the chart for `airconditioning.no` are smaller values than `area`/`bathrooms` but still quite significant, which suggests a/c is almost just as important as having more than one story or bathroom.
+
+This brought a question that “Might `airconditioning.no` be picking up on a deeper underlying factor such as older homes, lower-income neighborhoods or properties lacking other modern-day amenities?”  It might be interesting to stratify by age or location to check for absence in a/c is essentially serving as a proxy for something else.
