@@ -456,7 +456,60 @@ $ furnishingstatus.furnished        &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1,
 </li>
 <li><strong>R² Score (Coefficient of Determination)</strong></li>
 </ul>
-<p>These metrics provide complementary views of error magnitude and explanatory power.</p>
+<p>These metrics provide complementary views of error magnitude and explanatory power. ::: {.cell}</p>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define evaluation function </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(true, pred) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  mae  <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(true <span class="sc">-</span> pred))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  mse  <span class="ot">&lt;-</span> <span class="fu">mean</span>((true <span class="sc">-</span> pred)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  rmse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(mse)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  r2   <span class="ot">&lt;-</span> <span class="fu">cor</span>(true, pred)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">MAE =</span> mae, <span class="at">MSE =</span> mse, <span class="at">RMSE =</span> rmse, <span class="at">R2 =</span> r2)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>pred_lm    <span class="ot">&lt;-</span> <span class="fu">predict</span>(lm_mod,    test)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>pred_ridge <span class="ot">&lt;-</span> <span class="fu">predict</span>(ridge_mod, <span class="at">newx =</span> <span class="fu">as.matrix</span>(test[, <span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>pred_lasso <span class="ot">&lt;-</span> <span class="fu">predict</span>(lasso_mod, <span class="at">newx =</span> <span class="fu">as.matrix</span>(test[, <span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>pred_enet  <span class="ot">&lt;-</span> <span class="fu">predict</span>(enet_mod,  <span class="at">newx =</span> <span class="fu">as.matrix</span>(test[, <span class="sc">-</span><span class="dv">1</span>]))</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>pred_knn   <span class="ot">&lt;-</span> <span class="fu">predict</span>(knn_mod,   test)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>eval_lm    <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_lm)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>eval_ridge <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_ridge)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>eval_lasso <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_lasso)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>eval_enet  <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_enet)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>eval_knn   <span class="ot">&lt;-</span> <span class="fu">f</span>(test<span class="sc">$</span>price, pred_knn)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate results into a data frame</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">Linear     =</span> eval_lm,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ridge      =</span> eval_ridge,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">Lasso      =</span> eval_lasso,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">ElasticNet =</span> eval_enet,</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">KNN        =</span> eval_knn</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"Model"</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Model       MAE       MSE      RMSE        R2
+1     Linear 0.4324900 0.3567765 0.5973077 0.6931722
+2      Ridge 0.4349472 0.3595279 0.5996065 0.6942843
+3      Lasso 0.4325785 0.3571445 0.5976156 0.6933268
+4 ElasticNet 0.4326635 0.3572365 0.5976927 0.6933866
+5        KNN 0.4318257 0.4479066 0.6692583 0.6580994</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> results <span class="sc">%&gt;%</span> <span class="fu">slice_min</span>(RMSE, <span class="at">n =</span> <span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Best model by RMSE is:"</span>, best_model<span class="sc">$</span>Model, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best model by RMSE is: Linear </code></pre>
+</div>
+<p>:::</p>
 <hr>
 </section>
 <section id="feature-importance" class="level2" data-number="4.3">

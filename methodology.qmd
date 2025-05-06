@@ -153,7 +153,44 @@ To assess and compare model performance, the following evaluation metrics were u
 - **R² Score (Coefficient of Determination)**
 
 These metrics provide complementary views of error magnitude and explanatory power.
+```{r}
+# define evaluation function 
+f <- function(true, pred) {
+  mae  <- mean(abs(true - pred))
+  mse  <- mean((true - pred)^2)
+  rmse <- sqrt(mse)
+  r2   <- cor(true, pred)^2
+  c(MAE = mae, MSE = mse, RMSE = rmse, R2 = r2)
+}
 
+# Generate predictions
+pred_lm    <- predict(lm_mod,    test)
+pred_ridge <- predict(ridge_mod, newx = as.matrix(test[, -1]))
+pred_lasso <- predict(lasso_mod, newx = as.matrix(test[, -1]))
+pred_enet  <- predict(enet_mod,  newx = as.matrix(test[, -1]))
+pred_knn   <- predict(knn_mod,   test)
+
+eval_lm    <- f(test$price, pred_lm)
+eval_ridge <- f(test$price, pred_ridge)
+eval_lasso <- f(test$price, pred_lasso)
+eval_enet  <- f(test$price, pred_enet)
+eval_knn   <- f(test$price, pred_knn)
+
+# Aggregate results into a data frame
+results <- rbind(
+  Linear     = eval_lm,
+  Ridge      = eval_ridge,
+  Lasso      = eval_lasso,
+  ElasticNet = eval_enet,
+  KNN        = eval_knn
+) %>% as.data.frame() %>%
+  rownames_to_column("Model")
+
+print(results)
+best_model <- results %>% slice_min(RMSE, n = 1)
+cat("Best model by RMSE is:", best_model$Model, "\n")
+
+```
 ---
 
 ## Feature Importance
