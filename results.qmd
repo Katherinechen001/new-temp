@@ -57,29 +57,12 @@ test      <- predict(scaler, test_raw)
 
 # Confirm scaling: mean≈0, sd≈1
 train_summary <- train %>% summarise(across(everything(), list(mean = ~mean(.), sd = ~sd(.))))
-print(train_summary[, 1:6])  
+ 
 
 #Standardizing both predictors and the target (price) lets regularized models (Ridge, Lasso) work properly and makes error metrics comparable across features.
 
 
 ```
-
-
-- **Handling Categorical Features:**
-The binary categorical variables (mainroad, guestroom, basement, hotwaterheating, airconditioning, prefarea), were converted to numeric by assigning value 0 to “No” and 1 to “Yes”. The furnishingstatus variable, which has more than two levels, was one-hot encoded to prevent imposing ordinal dependencies where there are none.
-- **Normalization:**
-For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), numeric features were all standardized by z-score scaling. This prevents features with high numerical ranges (like area) from unduly influencing the model.
-- **Train-Test Split:**
-The data were randomly partitioned into a training set comprised of 80% of the participants, and a testing set was obtained with the remaining 20% to assess the generalization ability of the model. The division was randomized but the same for all models to facilitate proper comparison.
-
-
-Five different models were implemented to predict house prices:
-
-- **Linear Regression**  
-- **Ridge Regression**  
-- **Lasso Regression**  
-- **Elastic Net Regression**  
-- **K-Nearest Neighbors (KNN) Regression**
 ```{r}
 
 # Linear Regression
