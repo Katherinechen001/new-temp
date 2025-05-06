@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Predicting Housing Prices - 6&nbsp; Conclusion</title>
+<title>Predicting Housing Prices - 6&nbsp; Conclusion and Recommendations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./conclusion.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./conclusion.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion and Recommendations</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -109,32 +109,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./final.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Housing Price Prediction Analysis</span></span></a>
+  <a href="./objective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Objective</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  <a href="./data overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Overview</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Apartment Prices</span></span></a>
+  <a href="./methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methodology</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Results</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Results &amp; Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./conclusion.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion and Recommendations</span></span></a>
   </div>
 </li>
     </ul>
@@ -150,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Conclusion and Recommendations</span></h1>
 </div>
 
 
@@ -165,6 +165,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>##Key Conclusions## Area, bathrooms, and stories are main drivers of price in terms of structure, but they are not proportional one to the other as they have a nonlinear effect on pricing. For instance, the price increases dramatically for space within the mid-market and scales back out for very large sizes. Likewise, the costanness of having more than two additional bathrooms flatlines. There were trade-offs, according to model comparison: - <strong>Random Forest was able to capture nuanced relationships and not overfit any individual feature.</strong> - <strong>Linear Regression was more interpretable, but it did not predict as well at the outer bounds, and it often overfit less-important variables (e.g., bedrooms, guestroom).</strong> - <strong>Partial Dependence Plots and residual analyses revealed threshold effects and biases in all price segments but particularly in the middle to high end of the market.</strong> ##Practical Recommendations## <strong>For Real Estate Developers and Sellers:</strong> Concentrating on reaching certain amenity benchmarks (for example 2 bathrooms 2 parking spots air conditioning). These have obvious cost advantages. Don’t throw money into features with diminishing returns, like additional bathrooms or bedrooms when the market only pays for so many at a home of its size. Think vertical growth — extra stories may boost value, especially in denser or higher-end areas. <strong>For Modelers &amp; Analysts:</strong> Supplement linear models with nonlinear components, such as splines or polynomial terms, or give the segmented price tier modeling a try to cope with the bounds more effectively. Additive context information like age of the property, neighborhood score, or renovation status to increase mid-range accuracy and to minimize residual variance. <strong>For Policy Makers and City Planners:</strong> Observations corroborate the price effect of location and facilities (e.g., main road access) that justifies investment in the quality of neighbourhood and public transport provision. Amenity gaps — whether the absence of climate control or off-street parking — may be a sign of inequality in terms of the quality of housing that could also inform affordable housing efforts. While “larger homes cost more” is a consistent theme, the real story is about feature combinations, market expectations, and non-linear relationships. By mixing model performance with economic intuition and visual diagnostics, it created not only a powerful predictive framework, but also a blueprint for smarter valuation, investment, and feature targeting in the U.S. housing market.</p>
 
 
 
@@ -405,7 +406,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./results.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Results</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Results &amp; Analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

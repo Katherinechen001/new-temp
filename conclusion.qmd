@@ -1,1 +1,18 @@
-# Conclusion
+# Conclusion and Recommendations
+##Key Conclusions##
+Area, bathrooms, and stories are main drivers of price in terms of structure, but they are not proportional one to the other as they have a nonlinear effect on pricing. For instance, the price increases dramatically for space within the mid-market and scales back out for very large sizes. Likewise, the costanness of having more than two additional bathrooms flatlines.
+There were trade-offs, according to model comparison:
+- **Random Forest was able to capture nuanced relationships and not overfit any individual feature.**
+- **Linear Regression was more interpretable, but it did not predict as well at the outer bounds, and it often overfit less-important variables (e.g., bedrooms, guestroom).**
+- **Partial Dependence Plots and residual analyses revealed threshold effects and biases in all price segments but particularly in the middle to high end of the market.**
+##Practical Recommendations##
+**For Real Estate Developers and Sellers:**
+Concentrating on reaching certain amenity benchmarks (for example 2 bathrooms 2 parking spots air conditioning). These have obvious cost advantages. Don’t throw money into features with diminishing returns, like additional bathrooms or bedrooms when the market only pays for so many at a home of its size.
+Think vertical growth — extra stories may boost value, especially in denser or higher-end areas.
+**For Modelers & Analysts:**
+Supplement linear models with nonlinear components, such as splines or polynomial terms, or give the segmented price tier modeling a try to cope with the bounds more effectively.
+Additive context information like age of the property, neighborhood score, or renovation status to increase mid-range accuracy and to minimize residual variance.
+**For Policy Makers and City Planners:**
+Observations corroborate the price effect of location and facilities (e.g., main road access) that justifies investment in the quality of neighbourhood and public transport provision.
+Amenity gaps — whether the absence of climate control or off-street parking — may be a sign of inequality in terms of the quality of housing that could also inform affordable housing efforts.
+While “larger homes cost more” is a consistent theme, the real story is about feature combinations, market expectations, and non-linear relationships. By mixing model performance with economic intuition and visual diagnostics, it created not only a powerful predictive framework, but also a blueprint for smarter valuation, investment, and feature targeting in the U.S. housing market.
