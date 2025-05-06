@@ -223,3 +223,31 @@ ggplot(rf_imp, aes(
     strip.text      = element_text(face = "bold")
   )
 ```
+```{r}
+# Partial Dependence Plots for Top RF Features
+
+library(pdp)
+library(purrr)
+
+# Pick the top 6 features by IncNodePurity
+top_features <- names(sort(rf_mod$importance[,"IncNodePurity"], decreasing = TRUE))[1:6]
+
+# Compute PDPs
+pdp_df <- map_dfr(top_features, function(var) {
+  pd <- partial(rf_mod, pred.var = var, train = as.data.frame(train))
+  pd %>%
+    rename(feature_value = 1) %>%
+    mutate(feature = var)
+})
+
+ggplot(pdp_df, aes(x = feature_value, y = yhat)) +
+  geom_line() +
+  facet_wrap(~ feature, scales = "free_x") +
+  labs(
+    title = "Partial Dependence Plots (Random Forest)",
+    x     = "Feature Value",
+    y     = "Predicted Price"
+  ) +
+  theme_minimal()
+
+```
