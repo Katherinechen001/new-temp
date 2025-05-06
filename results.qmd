@@ -230,7 +230,7 @@ Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives 
 Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.
 
 **Improvement and Refinements:**
-- Adjusting area for the neighborhood average (so it can fill it with “premium” square footage, not just square footage).
+- Adjusting `area` for the neighborhood average (so it can fill it with “premium” square footage, not just square footage).
 - Including interactions (e.g. area × stories) to test whether extra space on higher floors sells at a price premium.
 
 **Categorical Amenities Add Tangible Value**
