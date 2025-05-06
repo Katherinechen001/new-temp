@@ -4,6 +4,4 @@ Identification of Key Features: Identify the most impactful housing attributes â
 Predicting housing prices: The task is to develop an accurate model that can estimate the price of a house based on its features.
 My goal with this project is to cull patterns to guide real estate related decision-making and to offerâ€‚practical insight into the housing market.
 
-123
-
 

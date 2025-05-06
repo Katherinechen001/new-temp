@@ -32,6 +32,20 @@
     "href": "objective.html",
     "title": "2  objective",
     "section": "",
-    "text": "The main goal of this project is to understand and measure the determinants affecting housing prices in the US. The objective of the task is twofold: (Using multiple regression methods based on model fitness index.) Identification of Key Features: Identify the most impactful housing attributes – for example: area, number of rooms, utilities, or the geographical location the house is situated in. Predicting housing prices: The task is to develop an accurate model that can estimate the price of a house based on its features. My goal with this project is to cull patterns to guide real estate related decision-making and to offer practical insight into the housing market.\n123"
+    "text": "The main goal of this project is to understand and measure the determinants affecting housing prices in the US. The objective of the task is twofold: (Using multiple regression methods based on model fitness index.) Identification of Key Features: Identify the most impactful housing attributes – for example: area, number of rooms, utilities, or the geographical location the house is situated in. Predicting housing prices: The task is to develop an accurate model that can estimate the price of a house based on its features. My goal with this project is to cull patterns to guide real estate related decision-making and to offer practical insight into the housing market."
+  },
+  {
+    "objectID": "data overview.html#feature-description",
+    "href": "data overview.html#feature-description",
+    "title": "3  Data Overview",
+    "section": "3.1 Feature Description",
+    "text": "3.1 Feature Description\nFeature Type Description price Numeric Selling price of the house (target variable) area Numeric Size of the house in square feet bedrooms Numeric Number of bedrooms bathrooms Numeric Number of bathrooms stories Numeric Number of stories (floors) mainroad Categorical Whether the house is connected to the main road (Yes/No) guestroom Categorical Presence of a guest room (Yes/No) basement Categorical Presence of a basement (Yes/No) hotwaterheating Categorical Availability of hot water heating (Yes/No) airconditioning Categorical Availability of air conditioning (Yes/No) parking Numeric Number of parking spaces prefarea Categorical Whether the house is in a preferred area (Yes/No) furnishingstatus Categorical Furnishing status (e.g., furnished, semi-furnished, unfurnished)"
+  },
+  {
+    "objectID": "data overview.html#initial-observations",
+    "href": "data overview.html#initial-observations",
+    "title": "3  Data Overview",
+    "section": "3.2 Initial Observations",
+    "text": "3.2 Initial Observations\nThe data, including binary, and multi-class which are pre-processed to be suitable for modeling. No missing values were detected in the dataset, and hence analysis should be straightforward. The variable area would seem to be most obviously related to cost, as it is known that larger properties are more expensive."
   }
 ]

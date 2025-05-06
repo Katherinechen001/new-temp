@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Predicting Housing Prices - 2&nbsp; objective</title>
+<title>Predicting Housing Prices - 3&nbsp; Data Overview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./final.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./objective.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./objective.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">objective</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data overview.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Overview</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -110,38 +110,44 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./objective.html" class="sidebar-item-text sidebar-link active">
+  <a href="./objective.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">objective</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./data overview.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Overview</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./final.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Housing Price Prediction Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Housing Price Prediction Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter21.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Apartment Prices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Apartment Prices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Results</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Results</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
     </ul>
@@ -150,14 +156,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#feature-description" id="toc-feature-description" class="nav-link active" data-scroll-target="#feature-description"><span class="header-section-number">3.1</span> Feature Description</a></li>
+  <li><a href="#initial-observations" id="toc-initial-observations" class="nav-link" data-scroll-target="#initial-observations"><span class="header-section-number">3.2</span> Initial Observations</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/data overview.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">objective</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Overview</span></h1>
 </div>
 
 
@@ -172,9 +185,17 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The main goal of this project is to understand and measure the determinants affecting housing prices in the US. The objective of the task is twofold: (Using multiple regression methods based on model fitness index.) Identification of Key Features: Identify the most impactful housing attributes – for example: area, number of rooms, utilities, or the geographical location the house is situated in. Predicting housing prices: The task is to develop an accurate model that can estimate the price of a house based on its features. My goal with this project is to cull patterns to guide real estate related decision-making and to offer practical insight into the housing market.</p>
+<p>The data used in this project is called “ Housing. csv”, sourced from Kaggle. It describes a data record on 545 homes with 13 variables that consist of a mixture of predictive numeric and categorical attributes to describe the features of the homes. The target variable is price, the sale price of each house.</p>
+<section id="feature-description" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="feature-description"><span class="header-section-number">3.1</span> Feature Description</h2>
+<p>Feature Type Description price Numeric Selling price of the house (target variable) area Numeric Size of the house in square feet bedrooms Numeric Number of bedrooms bathrooms Numeric Number of bathrooms stories Numeric Number of stories (floors) mainroad Categorical Whether the house is connected to the main road (Yes/No) guestroom Categorical Presence of a guest room (Yes/No) basement Categorical Presence of a basement (Yes/No) hotwaterheating Categorical Availability of hot water heating (Yes/No) airconditioning Categorical Availability of air conditioning (Yes/No) parking Numeric Number of parking spaces prefarea Categorical Whether the house is in a preferred area (Yes/No) furnishingstatus Categorical Furnishing status (e.g., furnished, semi-furnished, unfurnished)</p>
+</section>
+<section id="initial-observations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="initial-observations"><span class="header-section-number">3.2</span> Initial Observations</h2>
+<p>The data, including binary, and multi-class which are pre-processed to be suitable for modeling. No missing values were detected in the dataset, and hence analysis should be straightforward. The variable area would seem to be most obviously related to cost, as it is known that larger properties are more expensive.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -412,13 +433,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./objective.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">objective</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./final.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Housing Price Prediction Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Housing Price Prediction Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -430,7 +451,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/objective.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

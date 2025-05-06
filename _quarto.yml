@@ -21,6 +21,7 @@ book:
   chapters:
     - index.qmd
     - objective.qmd
+    - data overview.qmd
     - final.qmd
     - data.qmd
     - chapter21.qmd
