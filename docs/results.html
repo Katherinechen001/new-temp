@@ -184,8 +184,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#feature-importance-across-models" id="toc-feature-importance-across-models" class="nav-link active" data-scroll-target="#feature-importance-across-models"><span class="header-section-number">5.1</span> Feature Importance Across Models</a></li>
   <li><a href="#heuristic-reasoning-and-feature-relationships" id="toc-heuristic-reasoning-and-feature-relationships" class="nav-link" data-scroll-target="#heuristic-reasoning-and-feature-relationships"><span class="header-section-number">5.2</span> Heuristic Reasoning and Feature Relationships</a></li>
-  <li><a href="#visualization-highlights" id="toc-visualization-highlights" class="nav-link" data-scroll-target="#visualization-highlights"><span class="header-section-number">5.3</span> Visualization Highlights</a></li>
-  <li><a href="#partial-dependence-plot" id="toc-partial-dependence-plot" class="nav-link" data-scroll-target="#partial-dependence-plot"><span class="header-section-number">5.4</span> Partial Dependence Plot</a></li>
+  <li><a href="#visualization-highlights" id="toc-visualization-highlights" class="nav-link" data-scroll-target="#visualization-highlights"><span class="header-section-number">5.3</span> Visualization Highlights</a>
+  <ul class="collapse">
+  <li><a href="#partial-dependence-plot" id="toc-partial-dependence-plot" class="nav-link" data-scroll-target="#partial-dependence-plot"><span class="header-section-number">5.3.1</span> Partial Dependence Plot</a></li>
+  <li><a href="#importance-rankings" id="toc-importance-rankings" class="nav-link" data-scroll-target="#importance-rankings"><span class="header-section-number">5.3.2</span> Importance rankings</a></li>
+  <li><a href="#actual-vs.-predicted" id="toc-actual-vs.-predicted" class="nav-link" data-scroll-target="#actual-vs.-predicted"><span class="header-section-number">5.3.3</span> Actual vs.&nbsp;Predicted</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/results.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -480,9 +484,8 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 <p>As we can see, <code>area</code> has a major character in both IncNodePurity and permutation-based importance, which means larger homes require higher prices. However as mentioned before the model relies too heavily on area and this will bring the risk of ignoring subtler-still meaningful signals in the data. Houses growing from under average to about half size increases its predicted price dramatically, especially in the area around 1-2 standard deviations above the mean. But beyond this “sweet spot,” price appreciation trails off, implying that ultra-large homes bring little in the way of incremental value unless they’re in the luxury bracket.</p>
 <p>Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives a large increase in home value, which is perhaps a more practical requirement for families. But a third or fourth bathroom does little unless it is combined with other upscale features such as extra stories or square footage.</p>
 <p>Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.</p>
-</section>
-<section id="partial-dependence-plot" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="partial-dependence-plot"><span class="header-section-number">5.4</span> Partial Dependence Plot</h2>
+<section id="partial-dependence-plot" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="partial-dependence-plot"><span class="header-section-number">5.3.1</span> Partial Dependence Plot</h3>
 <p>After seeing which features matter most in the Random Forest, I wanted to understand how they influence price. The feature‐importance plot told me that area, bathrooms, air-conditioning, parking, and stories are the top drivers. But it didn’t reveal whether their effects are strictly linear, exhibit thresholds, or show diminishing returns.</p>
 <p>That’s why I produced the partial dependence plots. These six small plots trace each top predictor’s marginal impact on the model’s output, holding all other variables constant.</p>
 <div class="cell">
@@ -531,6 +534,9 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 <p>Towards the bottom of the chart shows that <code>guestroom.no</code>, <code>furnishingstatus.furnished</code> and <code>hotwaterheating.no</code> with minimal importance. In a more simple linear model, these may still receive non zero coefficients, but the Random Forest basically completely “ignores” them. The reason for this is because: their real impact on price is negligible though, or these binary splits rarely do anything to help homogeneity once the big kings (<code>area</code>, <code>a/c</code>, <code>bathrooms</code>) are on the board. Before dropping these variables completely, however, it is considerable to think about whether they may have nonlinear interactions, or only be important at certain sub-markets (eg. high-end furnished units).</p>
 <p><strong>Critical Takeaway</strong></p>
 <p><code>area</code> and <code>bathrooms</code> are left right where sellers would expect to see them, as the “headline” determinants of price point, while the next tier (air conditioning, parking, stories) illustrate an amenity driven market of housing. However, the overwhelming importance of area screams that it is necessary to have a better feature engineering for it - for example, maybe normalizing by lot size or adding something non-linear based on location/area, and forcing the model to learn some more complex story than <strong>“bigger = more expensive.”</strong></p>
+</section>
+<section id="importance-rankings" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="importance-rankings"><span class="header-section-number">5.3.2</span> Importance rankings</h3>
 <p>Having seen the overall importance rankings in Plot 1 and the detailed marginal effects in Plot 2, Plot 3 lets me check how a single decision tree would have ranked those same top drivers compared to the ensemble forest.</p>
 <div class="cell">
 <details>
@@ -579,6 +585,10 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 <p>Expecting that high-tech transportation companies would be raiding the ranks of New York’s taxi drivers for drivers. Observing the parking goes from a last of the top-five in the single tree forest to a solid fourth place in the forest. This increase shows that by looking at many trees, the forest is able to find subtle patterns. It contributes to the thesis that parking is a non-negligible amenity premium in this market.</p>
 <p><strong>Model Bias &amp; Ensemble Stability</strong></p>
 <p>All in all, the tree has a stronger distinguishing signal put into a more “peaked” form: It puts 40+ % of its weight on area, 20% on bathrooms, while the forest is spreading the importance more evenly(<sub>32%,</sub>18%,~9% x5, ~8% x5). This contrast exemplifies the classic bias–variance trade-off: one tree will easily latch onto a few strong predictors (biasing its view of importance), while the forest ensemble will iron out those biases, leaving a more conservative but more robust ranking. When doing feature engineering, it means we should have more faith in the forest ordering to decide on which variables to pay more attention to or transform more.</p>
+</section>
+<section id="actual-vs.-predicted" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="actual-vs.-predicted"><span class="header-section-number">5.3.3</span> Actual vs.&nbsp;Predicted</h3>
+<p>Why I added the actual vs.&nbsp;predicted scatter: This goes beyond just summary metrics (RMSE, R²) and tells you exactly where your model does well and where it fails. By doing that for each home’s actual price vs.&nbsp;its forecast, I can easily check that, overall, they line up well while also seeing any systematic biases — like underestimation of luxury and overestimation of bargain homes — that would be hidden by average errors alone. That direct comparison exposes an asymmetry of uncertainty across price tiers and suggests specific next steps (nonlinear terms, tiered submodels, richer features) to more accurately predict prices at the high, the low, and the middle of the market.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -693,6 +703,7 @@ We have some observations with residuals &gt; +1.5, which could be extreme cas
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

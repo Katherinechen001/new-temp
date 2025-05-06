@@ -229,7 +229,7 @@ Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives 
 
 Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.
 
-## Partial Dependence Plot ##
+### Partial Dependence Plot 
 
 After seeing which features matter most in the Random Forest, I wanted to understand how they influence price. The feature‐importance plot told me that area, bathrooms, air-conditioning, parking, and stories are the top drivers. But it didn’t reveal whether their effects are strictly linear, exhibit thresholds, or show diminishing returns.
 
@@ -284,6 +284,7 @@ Towards the bottom of the chart shows that `guestroom.no`, `furnishingstatus.fur
 
 `area` and `bathrooms` are left right where sellers would expect to see them, as the “headline” determinants of price point, while the next tier (air conditioning, parking, stories) illustrate an amenity driven market of housing. However, the overwhelming importance of area screams that it is necessary to have a better feature engineering for it - for example, maybe normalizing by lot size or adding something non-linear based on location/area, and forcing the model to learn some more complex story than **“bigger = more expensive.”**
 
+### Importance rankings
 
 Having seen the overall importance rankings in Plot 1 and the detailed marginal effects in Plot 2, Plot 3 lets me check how a single decision tree would have ranked those same top drivers compared to the ensemble forest. 
 ```{r}
@@ -332,6 +333,9 @@ Expecting that high-tech transportation companies would be raiding the ranks of 
 
 All in all, the tree has a stronger distinguishing signal put into a more “peaked” form: It puts 40+ % of its weight on area, 20% on bathrooms, while the forest is spreading the importance more evenly(~32%,~18%,~9% x5, ~8% x5). This contrast exemplifies the classic bias–variance trade-off: one tree will easily latch onto a few strong predictors (biasing its view of importance), while the forest ensemble will iron out those biases, leaving a more conservative but more robust ranking. When doing feature engineering, it means we should have more faith in the forest ordering to decide on which variables to pay more attention to or transform more.
 
+
+### Actual vs. Predicted
+Why I added the actual vs. predicted scatter: This goes beyond just summary metrics (RMSE, R²) and tells you exactly where your model does well and where it fails. By doing that for each home’s actual price vs. its forecast, I can easily check that, overall, they line up well while also seeing any systematic biases — like underestimation of luxury and overestimation of bargain homes — that would be hidden by average errors alone. That direct comparison exposes an asymmetry of uncertainty across price tiers and suggests specific next steps (nonlinear terms, tiered submodels, richer features) to more accurately predict prices at the high, the low, and the middle of the market.
 ```{r}
 # Final Model Diagnostics & Conclusion
 
