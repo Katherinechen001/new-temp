@@ -78,3 +78,23 @@ For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), nume
 - **Train-Test Split:**
 The data were randomly partitioned into a training set comprised of 80% of the participants, and a testing set was obtained with the remaining 20% to assess the generalization ability of the model. The division was randomized but the same for all models to facilitate proper comparison.
 
+
+## Models Used
+Using five different models to predict house prices:
+- **Linear Regression**
+- **Ridge Regression**
+- **Lasso Regression**
+- **Elastic Net Regression**
+- **K-nearest neighbors (KNN) Regression**
+## Model Evaluation Metrics
+Each Model’s performance was evaluated on the test set using the following metrics:
+- **Mean Absolute Error(MAE)**
+- **Mean Squared Error (MSE)**
+- **Root Mean Squared Error (RMSE)**
+- **R² Score (Coefficient of Determination)**
+4.4 Feature Importance
+Using different methods to estimate the feature importance:
+●Coefficient-Based Importance: For linear models (Linear, Lasso, Ridge, Elastic Net), standardized coefficients were used to rank features.
+●Permutation-Based Importance: For models such as K-NN which do not have coefficients they used permutation importance to show how shuffling a feature impacts the model’s performance.
+●Partial Dependence Plots (PDPs): Examine feature effect while holding others constant
+●SHAP-like reasoning: Interpret individual feature contributions
