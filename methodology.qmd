@@ -22,6 +22,55 @@ str(data_raw)
 ## Data Preprocessing
 In order to do the regression modeling for the dataset, several preprocessing steps need to be applied:
 
+
+```{r}
+#Factor transformation
+data <- data_raw %>%
+  mutate(
+    mainroad          = factor(mainroad,          levels = c("yes", "no")),
+    guestroom         = factor(guestroom,         levels = c("yes", "no")),
+    basement          = factor(basement,          levels = c("yes", "no")),
+    hotwaterheating   = factor(hotwaterheating,   levels = c("yes", "no")),
+    airconditioning   = factor(airconditioning,   levels = c("yes", "no")),
+    prefarea         = factor(prefarea,          levels = c("yes", "no")),
+    furnishingstatus  = factor(furnishingstatus,
+                               levels = c("unfurnished","semi-furnished","furnished"))
+  )
+
+# Dummy variable
+dummy_mod <- dummyVars(~ ., data = data[ , -1], fullRank = TRUE)
+data_dummies <- predict(dummy_mod, newdata = data) %>% as.data.frame()
+
+# Merge the "price" column
+data2_raw <- bind_cols(price = data$price, data_dummies)
+
+glimpse(data2_raw)
+#I want to make sure that all columns in data2_raw are of numeric type (dbl), and there are no original factor columns in the column names.
+
+```
+```{r}
+# Create stratified partition on the price variable
+set.seed(1234)
+idx       <- createDataPartition(data2_raw$price, p = 0.8, list = FALSE)
+train_raw <- data2_raw[idx, ]
+test_raw  <- data2_raw[-idx, ]
+
+scaler    <- preProcess(train_raw, method = c("center", "scale"))
+
+# Apply the scaler to both sets
+train     <- predict(scaler, train_raw)
+test      <- predict(scaler, test_raw)
+
+# Confirm scaling: mean≈0, sd≈1
+train_summary <- train %>% summarise(across(everything(), list(mean = ~mean(.), sd = ~sd(.))))
+print(train_summary[, 1:6])  
+
+#Standardizing both predictors and the target (price) lets regularized models (Ridge, Lasso) work properly and makes error metrics comparable across features.
+
+
+```
+
+
 - **Handling Categorical Features:**
 The binary categorical variables (mainroad, guestroom, basement, hotwaterheating, airconditioning, prefarea), were converted to numeric by assigning value 0 to “No” and 1 to “Yes”. The furnishingstatus variable, which has more than two levels, was one-hot encoded to prevent imposing ordinal dependencies where there are none.
 - **Normalization:**

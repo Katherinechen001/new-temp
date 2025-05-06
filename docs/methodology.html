@@ -291,6 +291,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-preprocessing" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="data-preprocessing"><span class="header-section-number">4.1</span> Data Preprocessing</h2>
 <p>In order to do the regression modeling for the dataset, several preprocessing steps need to be applied:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Factor transformation</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mainroad          =</span> <span class="fu">factor</span>(mainroad,          <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">guestroom         =</span> <span class="fu">factor</span>(guestroom,         <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">basement          =</span> <span class="fu">factor</span>(basement,          <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">hotwaterheating   =</span> <span class="fu">factor</span>(hotwaterheating,   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">airconditioning   =</span> <span class="fu">factor</span>(airconditioning,   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">prefarea         =</span> <span class="fu">factor</span>(prefarea,          <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>)),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">furnishingstatus  =</span> <span class="fu">factor</span>(furnishingstatus,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                               <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"unfurnished"</span>,<span class="st">"semi-furnished"</span>,<span class="st">"furnished"</span>))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Dummy variable</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>dummy_mod <span class="ot">&lt;-</span> <span class="fu">dummyVars</span>(<span class="sc">~</span> ., <span class="at">data =</span> data[ , <span class="sc">-</span><span class="dv">1</span>], <span class="at">fullRank =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>data_dummies <span class="ot">&lt;-</span> <span class="fu">predict</span>(dummy_mod, <span class="at">newdata =</span> data) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the "price" column</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>data2_raw <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(<span class="at">price =</span> data<span class="sc">$</span>price, data_dummies)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data2_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 545
+Columns: 14
+$ price                             &lt;dbl&gt; 13300000, 12250000, 12250000, 122150…
+$ area                              &lt;dbl&gt; 7420, 8960, 9960, 7500, 7420, 7500, …
+$ bedrooms                          &lt;dbl&gt; 4, 4, 3, 4, 4, 3, 4, 5, 4, 3, 3, 4, …
+$ bathrooms                         &lt;dbl&gt; 2, 4, 2, 2, 1, 3, 3, 3, 1, 2, 1, 3, …
+$ stories                           &lt;dbl&gt; 3, 4, 2, 2, 2, 1, 4, 2, 2, 4, 2, 2, …
+$ mainroad.no                       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ guestroom.no                      &lt;dbl&gt; 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, …
+$ basement.no                       &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, …
+$ hotwaterheating.no                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, …
+$ airconditioning.no                &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, …
+$ parking                           &lt;dbl&gt; 2, 3, 2, 3, 2, 2, 2, 0, 2, 1, 2, 2, …
+$ prefarea.no                       &lt;dbl&gt; 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, …
+$ `furnishingstatus.semi-furnished` &lt;dbl&gt; 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, …
+$ furnishingstatus.furnished        &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, …</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#I want to make sure that all columns in data2_raw are of numeric type (dbl), and there are no original factor columns in the column names.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create stratified partition on the price variable</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>idx       <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(data2_raw<span class="sc">$</span>price, <span class="at">p =</span> <span class="fl">0.8</span>, <span class="at">list =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>train_raw <span class="ot">&lt;-</span> data2_raw[idx, ]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>test_raw  <span class="ot">&lt;-</span> data2_raw[<span class="sc">-</span>idx, ]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>scaler    <span class="ot">&lt;-</span> <span class="fu">preProcess</span>(train_raw, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"scale"</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the scaler to both sets</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>train     <span class="ot">&lt;-</span> <span class="fu">predict</span>(scaler, train_raw)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>test      <span class="ot">&lt;-</span> <span class="fu">predict</span>(scaler, test_raw)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Confirm scaling: mean≈0, sd≈1</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>train_summary <span class="ot">&lt;-</span> train <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(.), <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(.))))</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(train_summary[, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>])  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    price_mean price_sd     area_mean area_sd bedrooms_mean bedrooms_sd
+1 1.550257e-15        1 -2.048336e-15       1  8.127378e-16           1</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Standardizing both predictors and the target (price) lets regularized models (Ridge, Lasso) work properly and makes error metrics comparable across features.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <ul>
 <li><strong>Handling Categorical Features:</strong> The binary categorical variables (mainroad, guestroom, basement, hotwaterheating, airconditioning, prefarea), were converted to numeric by assigning value 0 to “No” and 1 to “Yes”. The furnishingstatus variable, which has more than two levels, was one-hot encoded to prevent imposing ordinal dependencies where there are none.</li>
 <li><strong>Normalization:</strong> For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), numeric features were all standardized by z-score scaling. This prevents features with high numerical ranges (like area) from unduly influencing the model.</li>
