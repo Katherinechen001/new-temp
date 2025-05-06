@@ -1,5 +1,178 @@
 # Results & Analysis
+```{r}
+#import data
+library(tidyverse)
+library(caret)
+library(lattice)
+library(car)
+library(corrplot)
+library(glmnet)  
+library(randomForest)
+library(rpart)
 
+# Read the data and eliminate the rows containing NA
+set.seed(1234)
+data_raw <- read_csv("~/housing/data/Housing.csv")
+head(data_raw)
+str(data_raw)
+
+```
+```{r}
+#Factor transformation
+data <- data_raw %>%
+  mutate(
+    mainroad          = factor(mainroad,          levels = c("yes", "no")),
+    guestroom         = factor(guestroom,         levels = c("yes", "no")),
+    basement          = factor(basement,          levels = c("yes", "no")),
+    hotwaterheating   = factor(hotwaterheating,   levels = c("yes", "no")),
+    airconditioning   = factor(airconditioning,   levels = c("yes", "no")),
+    prefarea         = factor(prefarea,          levels = c("yes", "no")),
+    furnishingstatus  = factor(furnishingstatus,
+                               levels = c("unfurnished","semi-furnished","furnished"))
+  )
+
+# Dummy variable
+dummy_mod <- dummyVars(~ ., data = data[ , -1], fullRank = TRUE)
+data_dummies <- predict(dummy_mod, newdata = data) %>% as.data.frame()
+
+# Merge the "price" column
+data2_raw <- bind_cols(price = data$price, data_dummies)
+
+glimpse(data2_raw)
+#I want to make sure that all columns in data2_raw are of numeric type (dbl), and there are no original factor columns in the column names.
+
+```
+```{r}
+# Create stratified partition on the price variable
+set.seed(1234)
+idx       <- createDataPartition(data2_raw$price, p = 0.8, list = FALSE)
+train_raw <- data2_raw[idx, ]
+test_raw  <- data2_raw[-idx, ]
+
+scaler    <- preProcess(train_raw, method = c("center", "scale"))
+
+# Apply the scaler to both sets
+train     <- predict(scaler, train_raw)
+test      <- predict(scaler, test_raw)
+
+# Confirm scaling: mean≈0, sd≈1
+train_summary <- train %>% summarise(across(everything(), list(mean = ~mean(.), sd = ~sd(.))))
+print(train_summary[, 1:6])  
+
+#Standardizing both predictors and the target (price) lets regularized models (Ridge, Lasso) work properly and makes error metrics comparable across features.
+
+
+```
+
+
+- **Handling Categorical Features:**
+The binary categorical variables (mainroad, guestroom, basement, hotwaterheating, airconditioning, prefarea), were converted to numeric by assigning value 0 to “No” and 1 to “Yes”. The furnishingstatus variable, which has more than two levels, was one-hot encoded to prevent imposing ordinal dependencies where there are none.
+- **Normalization:**
+For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), numeric features were all standardized by z-score scaling. This prevents features with high numerical ranges (like area) from unduly influencing the model.
+- **Train-Test Split:**
+The data were randomly partitioned into a training set comprised of 80% of the participants, and a testing set was obtained with the remaining 20% to assess the generalization ability of the model. The division was randomized but the same for all models to facilitate proper comparison.
+
+
+Five different models were implemented to predict house prices:
+
+- **Linear Regression**  
+- **Ridge Regression**  
+- **Lasso Regression**  
+- **Elastic Net Regression**  
+- **K-Nearest Neighbors (KNN) Regression**
+```{r}
+
+# Linear Regression
+lm_mod <- lm(price ~ ., data = train)
+
+# Ridge Regression (α = 0)
+library(glmnet)
+ridge_cv  <- cv.glmnet(
+  x     = as.matrix(train[, -1]),
+  y     = train$price,
+  alpha = 0
+)
+ridge_mod <- glmnet(
+  x      = as.matrix(train[, -1]),
+  y      = train$price,
+  alpha  = 0,
+  lambda = ridge_cv$lambda.min
+)
+
+# Lasso Regression (α = 1)
+lasso_cv  <- cv.glmnet(
+  x     = as.matrix(train[, -1]),
+  y     = train$price,
+  alpha = 1
+)
+lasso_mod <- glmnet(
+  x     = as.matrix(train[, -1]),
+  y     = train$price,
+  alpha = 1,
+  lambda= lasso_cv$lambda.min
+)
+
+# Elastic Net (α = 0.5)
+enet_cv  <- cv.glmnet(
+  x     = as.matrix(train[, -1]),
+  y     = train$price,
+  alpha = 0.5
+)
+enet_mod <- glmnet(
+  x      = as.matrix(train[, -1]),
+  y      = train$price,
+  alpha  = 0.5,
+  lambda = enet_cv$lambda.min
+)
+
+# k-Nearest Neighbors
+library(kknn)
+knn_mod <- train.kknn(
+  price ~ .,
+  data  = train,
+  kmax  = 10,
+  kernel= "optimal"
+)
+
+```
+```{r}
+# define evaluation function 
+f <- function(true, pred) {
+  mae  <- mean(abs(true - pred))
+  mse  <- mean((true - pred)^2)
+  rmse <- sqrt(mse)
+  r2   <- cor(true, pred)^2
+  c(MAE = mae, MSE = mse, RMSE = rmse, R2 = r2)
+}
+
+# Generate predictions
+pred_lm    <- predict(lm_mod,    test)
+pred_ridge <- predict(ridge_mod, newx = as.matrix(test[, -1]))
+pred_lasso <- predict(lasso_mod, newx = as.matrix(test[, -1]))
+pred_enet  <- predict(enet_mod,  newx = as.matrix(test[, -1]))
+pred_knn   <- predict(knn_mod,   test)
+
+eval_lm    <- f(test$price, pred_lm)
+eval_ridge <- f(test$price, pred_ridge)
+eval_lasso <- f(test$price, pred_lasso)
+eval_enet  <- f(test$price, pred_enet)
+eval_knn   <- f(test$price, pred_knn)
+
+# Aggregate results into a data frame
+results <- rbind(
+  Linear     = eval_lm,
+  Ridge      = eval_ridge,
+  Lasso      = eval_lasso,
+  ElasticNet = eval_enet,
+  KNN        = eval_knn
+) %>% as.data.frame() %>%
+  rownames_to_column("Model")
+
+print(results)
+best_model <- results %>% slice_min(RMSE, n = 1)
+cat("Best model by RMSE is:", best_model$Model, "\n")
+
+```
 This section highlights the performance of each regression model and most importantly interprets key results from both numerical evaluation and feature analysis.
 
 ## Feature Importance Across Models
@@ -29,3 +202,49 @@ Some categorical features (e.g., `airconditioning`, `basement`, `guestroom`) exh
 
 ## Visualization Highlights
 To better understand how feature influence predictions, these are the findings which were found:
+```{r}
+# IncNodePurity: total reduction in node impurity (variance) when splitting on that feature
+# X.IncMSE: increase in out‐of‐bag MSE if we randomly permute that feature (i.e. how much error jumps when the feature is “hidden”)
+library(randomForest)
+library(dplyr)
+library(tidyr)
+library(forcats)
+library(ggplot2)
+library(tibble)    # for rownames_to_column()
+
+# 1) Fit RF
+rf_mod <- randomForest(
+  x          = train[, -1],
+  y          = train$price,
+  importance = TRUE
+)
+
+# 2) Tidy importance
+rf_imp <- rf_mod$importance %>% 
+  as.data.frame() %>% 
+  rownames_to_column("feature") %>% 
+  pivot_longer(
+    cols      = c("%IncMSE", "IncNodePurity"),    # use the actual column names
+    names_to  = "Metric",
+    values_to = "Importance"
+  )
+
+# 3) Plot with facets
+ggplot(rf_imp, aes(
+    x    = Importance,
+    y    = fct_reorder(feature, Importance),
+    fill = Metric
+  )) +
+  geom_col() +
+  facet_wrap(~ Metric, scales = "free_x") +
+  labs(
+    title = "Random Forest Feature Importance",
+    x     = "Importance Score",
+    y     = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    strip.text      = element_text(face = "bold")
+  )
+```
