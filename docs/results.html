@@ -711,8 +711,8 @@ We have some observations with residuals &gt; +1.5, which could be extreme cas
 <p>pred_fun &lt;- function(object, newdata) { predict(object, newdata = newdata) }</p>
 <p>shap_lm &lt;- explain( object = lm_model, X = X_train, pred_wrapper = pred_fun, nsim = 100<br>
 )</p>
-<p>autoplot(shap_lm, X = X_train) + ggtitle(“SHAP Summary for Linear Regression Model”)</p>
-<p>autoplot(shap_lm, type = “contribution”, row_num = 1, X = X_train) + ggtitle(“SHAP Explanation for Observation 1”)</p>
+<p>p1 &lt;- autoplot(shap_lm, X = X_train) + ggtitle(“SHAP Summary for Linear Regression Model”) print(p1)</p>
+<p>p2 &lt;- autoplot(shap_lm, type = “contribution”, row_num = 1, X = X_train) + ggtitle(“SHAP Explanation for Observation 1”) print(p2)</p>
 
 
 </section>

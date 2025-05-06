@@ -460,9 +460,10 @@ shap_lm <- explain(
 )
 
 
-autoplot(shap_lm, X = X_train) +
+p1 <- autoplot(shap_lm, X = X_train) +
   ggtitle("SHAP Summary for Linear Regression Model")
+print(p1)
 
-
-autoplot(shap_lm, type = "contribution", row_num = 1, X = X_train) +
+p2 <- autoplot(shap_lm, type = "contribution", row_num = 1, X = X_train) +
   ggtitle("SHAP Explanation for Observation 1")
+print(p2)
