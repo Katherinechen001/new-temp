@@ -143,7 +143,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#key-conclusions" id="toc-key-conclusions" class="nav-link active" data-scroll-target="#key-conclusions"><span class="header-section-number">6.1</span> Key Conclusions</a></li>
+  <li><a href="#practical-recommendations" id="toc-practical-recommendations" class="nav-link" data-scroll-target="#practical-recommendations"><span class="header-section-number">6.2</span> Practical Recommendations</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/conclusion.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -165,9 +172,22 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>##Key Conclusions## Area, bathrooms, and stories are main drivers of price in terms of structure, but they are not proportional one to the other as they have a nonlinear effect on pricing. For instance, the price increases dramatically for space within the mid-market and scales back out for very large sizes. Likewise, the costanness of having more than two additional bathrooms flatlines. There were trade-offs, according to model comparison: - <strong>Random Forest was able to capture nuanced relationships and not overfit any individual feature.</strong> - <strong>Linear Regression was more interpretable, but it did not predict as well at the outer bounds, and it often overfit less-important variables (e.g., bedrooms, guestroom).</strong> - <strong>Partial Dependence Plots and residual analyses revealed threshold effects and biases in all price segments but particularly in the middle to high end of the market.</strong> ##Practical Recommendations## <strong>For Real Estate Developers and Sellers:</strong> Concentrating on reaching certain amenity benchmarks (for example 2 bathrooms 2 parking spots air conditioning). These have obvious cost advantages. Don’t throw money into features with diminishing returns, like additional bathrooms or bedrooms when the market only pays for so many at a home of its size. Think vertical growth — extra stories may boost value, especially in denser or higher-end areas. <strong>For Modelers &amp; Analysts:</strong> Supplement linear models with nonlinear components, such as splines or polynomial terms, or give the segmented price tier modeling a try to cope with the bounds more effectively. Additive context information like age of the property, neighborhood score, or renovation status to increase mid-range accuracy and to minimize residual variance. <strong>For Policy Makers and City Planners:</strong> Observations corroborate the price effect of location and facilities (e.g., main road access) that justifies investment in the quality of neighbourhood and public transport provision. Amenity gaps — whether the absence of climate control or off-street parking — may be a sign of inequality in terms of the quality of housing that could also inform affordable housing efforts. While “larger homes cost more” is a consistent theme, the real story is about feature combinations, market expectations, and non-linear relationships. By mixing model performance with economic intuition and visual diagnostics, it created not only a powerful predictive framework, but also a blueprint for smarter valuation, investment, and feature targeting in the U.S. housing market.</p>
+<section id="key-conclusions" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="key-conclusions"><span class="header-section-number">6.1</span> Key Conclusions</h2>
+<p>Area, bathrooms, and stories are main drivers of price in terms of structure, but they are not proportional one to the other as they have a nonlinear effect on pricing. For instance, the price increases dramatically for space within the mid-market and scales back out for very large sizes. Likewise, the costanness of having more than two additional bathrooms flatlines. There were trade-offs, according to model comparison: - <strong>Random Forest was able to capture nuanced relationships and not overfit any individual feature.</strong></p>
+<ul>
+<li><p><strong>Linear Regression was more interpretable, but it did not predict as well at the outer bounds, and it often overfit less-important variables (e.g., bedrooms, guestroom).</strong></p></li>
+<li><p><strong>Partial Dependence Plots and residual analyses revealed threshold effects and biases in all price segments but particularly in the middle to high end of the market.</strong></p></li>
+</ul>
+</section>
+<section id="practical-recommendations" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="practical-recommendations"><span class="header-section-number">6.2</span> Practical Recommendations</h2>
+<p><strong>For Real Estate Developers and Sellers:</strong> Concentrating on reaching certain amenity benchmarks (for example 2 bathrooms 2 parking spots air conditioning). These have obvious cost advantages. Don’t throw money into features with diminishing returns, like additional bathrooms or bedrooms when the market only pays for so many at a home of its size. Think vertical growth — extra stories may boost value, especially in denser or higher-end areas.</p>
+<p><strong>For Modelers &amp; Analysts:</strong> Supplement linear models with nonlinear components, such as splines or polynomial terms, or give the segmented price tier modeling a try to cope with the bounds more effectively. Additive context information like age of the property, neighborhood score, or renovation status to increase mid-range accuracy and to minimize residual variance.</p>
+<p><strong>For Policy Makers and City Planners:</strong> Observations corroborate the price effect of location and facilities (e.g., main road access) that justifies investment in the quality of neighbourhood and public transport provision. Amenity gaps — whether the absence of climate control or off-street parking — may be a sign of inequality in terms of the quality of housing that could also inform affordable housing efforts. While “larger homes cost more” is a consistent theme, the real story is about feature combinations, market expectations, and non-linear relationships. By mixing model performance with economic intuition and visual diagnostics, it created not only a powerful predictive framework, but also a blueprint for smarter valuation, investment, and feature targeting in the U.S. housing market.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -420,7 +440,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/conclusion.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
