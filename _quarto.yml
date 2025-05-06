@@ -23,9 +23,9 @@ book:
     - objective.qmd
     - data overview.qmd
     - methodology.qmd
+    - results.qmd
     - data.qmd
     - chapter21.qmd
-    - results.qmd
     - conclusion.qmd
 
 format:
