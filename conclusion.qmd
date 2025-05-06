@@ -2,11 +2,12 @@
 ## Key Conclusions ##
 Area, bathrooms, and stories are main drivers of price in terms of structure, but they are not proportional one to the other as they have a nonlinear effect on pricing. For instance, the price increases dramatically for space within the mid-market and scales back out for very large sizes. Likewise, the costanness of having more than two additional bathrooms flatlines.
 There were trade-offs, according to model comparison:
-- **Random Forest was able to capture nuanced relationships and not overfit any individual feature.**
 
-- **Linear Regression was more interpretable, but it did not predict as well at the outer bounds, and it often overfit less-important variables (e.g., bedrooms, guestroom).**
+- **Random Forest** was able to capture nuanced relationships and not overfit any individual feature.
 
-- **Partial Dependence Plots and residual analyses revealed threshold effects and biases in all price segments but particularly in the middle to high end of the market.**
+- **Linear Regression** was more interpretable, but it did not predict as well at the outer bounds, and it often overfit less-important variables (e.g., bedrooms, guestroom).
+
+- **Partial Dependence Plots** and residual analyses revealed threshold effects and biases in all price segments but particularly in the middle to high end of the market.
 
 ## Practical Recommendations ##
 
