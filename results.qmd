@@ -1,8 +1,8 @@
-## Results & Analysis
+# Results & Analysis
 
 This section highlights the performance of each regression model and most importantly interprets key results from both numerical evaluation and feature analysis.
 
-### Feature Importance Across Models
+## Feature Importance Across Models
 
 After crossing all models, the top-ranked features were remarkably consistent:
 
@@ -15,7 +15,7 @@ After crossing all models, the top-ranked features were remarkably consistent:
 | bathrooms            | Moderate                            | Additional bathrooms correlate with size and utility.                 |
 | furnishingstatus     | Low–Moderate (varies by model)      | Has subtle impact; may overlap with socioeconomic signals.            |
 
-### Heuristic Reasoning and Feature Relationships
+## Heuristic Reasoning and Feature Relationships
 
 **Overlap:**  
 Some features seem to measure overlapping concepts: `area`, `stories`, and `bathrooms` all relate to house size and livability. This suggests multicollinearity, and regularisation (Lasso/Ridge) will favor `area` as the most influential feature.  

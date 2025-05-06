@@ -89,5 +89,19 @@
     "title": "5  Results & Analysis",
     "section": "",
     "text": "This section highlights the performance of each regression model and most importantly interprets key results from both numerical evaluation and feature analysis.\n\n5.0.1 Feature Importance Across Models\nAfter crossing all models, the top-ranked features were remarkably consistent:\n\n\n\n\n\n\n\n\nFeature\nImportance Signal (Ridge/Lasso)\nInterpretation\n\n\n\n\narea\nVery High\nStrong, direct effect on price—larger homes sell for more.\n\n\nairconditioning\nHigh\nAdds perceived comfort and luxury, justifying a price premium.\n\n\nparking\nHigh\nReflects urban convenience—more parking = higher demand.\n\n\nprefarea\nModerate–High\nCaptures neighborhood desirability; a strong location proxy.\n\n\nbathrooms\nModerate\nAdditional bathrooms correlate with size and utility.\n\n\nfurnishingstatus\nLow–Moderate (varies by model)\nHas subtle impact; may overlap with socioeconomic signals.\n\n\n\n\n\n5.0.2 Heuristic Reasoning and Feature Relationships\nOverlap:\nSome features seem to measure overlapping concepts: area, stories, and bathrooms all relate to house size and livability. This suggests multicollinearity, and regularisation (Lasso/Ridge) will favor area as the most influential feature.\nSimilarly, prefarea and furnishingstatus might each serve as a proxy for socioeconomic desirability (furnishing might simply echo neighborhood-based norms or buyer wealth), but neither clearly dominates on its own.\nBinary Characteristics and Step-Value Effects:\nSome categorical features (e.g., airconditioning, basement, `g"
+  },
+  {
+    "objectID": "results.html#feature-importance-across-models",
+    "href": "results.html#feature-importance-across-models",
+    "title": "5  Results & Analysis",
+    "section": "5.1 Feature Importance Across Models",
+    "text": "5.1 Feature Importance Across Models\nAfter crossing all models, the top-ranked features were remarkably consistent:\n\n\n\n\n\n\n\n\nFeature\nImportance Signal (Ridge/Lasso)\nInterpretation\n\n\n\n\narea\nVery High\nStrong, direct effect on price—larger homes sell for more.\n\n\nairconditioning\nHigh\nAdds perceived comfort and luxury, justifying a price premium.\n\n\nparking\nHigh\nReflects urban convenience—more parking = higher demand.\n\n\nprefarea\nModerate–High\nCaptures neighborhood desirability; a strong location proxy.\n\n\nbathrooms\nModerate\nAdditional bathrooms correlate with size and utility.\n\n\nfurnishingstatus\nLow–Moderate (varies by model)\nHas subtle impact; may overlap with socioeconomic signals."
+  },
+  {
+    "objectID": "results.html#heuristic-reasoning-and-feature-relationships",
+    "href": "results.html#heuristic-reasoning-and-feature-relationships",
+    "title": "5  Results & Analysis",
+    "section": "5.2 Heuristic Reasoning and Feature Relationships",
+    "text": "5.2 Heuristic Reasoning and Feature Relationships\nOverlap:\nSome features seem to measure overlapping concepts: area, stories, and bathrooms all relate to house size and livability. This suggests multicollinearity, and regularisation (Lasso/Ridge) will favor area as the most influential feature.\nSimilarly, prefarea and furnishingstatus might each serve as a proxy for socioeconomic desirability (furnishing might simply echo neighborhood-based norms or buyer wealth), but neither clearly dominates on its own.\nBinary Characteristics and Step-Value Effects:\nSome categorical features (e.g., airconditioning, basement, `g"
   }
 ]

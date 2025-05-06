@@ -160,8 +160,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#feature-importance-across-models" id="toc-feature-importance-across-models" class="nav-link active" data-scroll-target="#feature-importance-across-models"><span class="header-section-number">5.0.1</span> Feature Importance Across Models</a></li>
-  <li><a href="#heuristic-reasoning-and-feature-relationships" id="toc-heuristic-reasoning-and-feature-relationships" class="nav-link" data-scroll-target="#heuristic-reasoning-and-feature-relationships"><span class="header-section-number">5.0.2</span> Heuristic Reasoning and Feature Relationships</a></li>
+  <li><a href="#feature-importance-across-models" id="toc-feature-importance-across-models" class="nav-link active" data-scroll-target="#feature-importance-across-models"><span class="header-section-number">5.1</span> Feature Importance Across Models</a></li>
+  <li><a href="#heuristic-reasoning-and-feature-relationships" id="toc-heuristic-reasoning-and-feature-relationships" class="nav-link" data-scroll-target="#heuristic-reasoning-and-feature-relationships"><span class="header-section-number">5.2</span> Heuristic Reasoning and Feature Relationships</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/results.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -186,8 +186,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>This section highlights the performance of each regression model and most importantly interprets key results from both numerical evaluation and feature analysis.</p>
-<section id="feature-importance-across-models" class="level3" data-number="5.0.1">
-<h3 data-number="5.0.1" class="anchored" data-anchor-id="feature-importance-across-models"><span class="header-section-number">5.0.1</span> Feature Importance Across Models</h3>
+<section id="feature-importance-across-models" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="feature-importance-across-models"><span class="header-section-number">5.1</span> Feature Importance Across Models</h2>
 <p>After crossing all models, the top-ranked features were remarkably consistent:</p>
 <table class="table">
 <colgroup>
@@ -236,8 +236,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="heuristic-reasoning-and-feature-relationships" class="level3" data-number="5.0.2">
-<h3 data-number="5.0.2" class="anchored" data-anchor-id="heuristic-reasoning-and-feature-relationships"><span class="header-section-number">5.0.2</span> Heuristic Reasoning and Feature Relationships</h3>
+<section id="heuristic-reasoning-and-feature-relationships" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="heuristic-reasoning-and-feature-relationships"><span class="header-section-number">5.2</span> Heuristic Reasoning and Feature Relationships</h2>
 <p><strong>Overlap:</strong><br>
 Some features seem to measure overlapping concepts: <code>area</code>, <code>stories</code>, and <code>bathrooms</code> all relate to house size and livability. This suggests multicollinearity, and regularisation (Lasso/Ridge) will favor <code>area</code> as the most influential feature.<br>
 Similarly, <code>prefarea</code> and <code>furnishingstatus</code> might each serve as a proxy for socioeconomic desirability (furnishing might simply echo neighborhood-based norms or buyer wealth), but neither clearly dominates on its own.</p>
