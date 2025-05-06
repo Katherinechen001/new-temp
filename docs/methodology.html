@@ -180,9 +180,9 @@ ul.task-list li input[type="checkbox"] {
 
 <p>This part will introduce the modeling process which is used to analyze the housing prices, which includes preprocessing steps, model selection, evaluation metrics, and feature importance analysis. ## Data Preprocessing In order to do the regression modeling for the dataset, several preprocessing steps need to be applied:</p>
 <ul>
-<li><strong>Handling Categorical Features</strong> The binary categorical variables (mainroad, guestroom, basement, hotwaterheating, airconditioning, prefarea), were converted to numeric by assigning value 0 to “No” and 1 to “Yes”. The furnishingstatus variable, which has more than two levels, was one-hot encoded to prevent imposing ordinal dependencies where there are none.</li>
-<li><strong>Normalization</strong> For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), numeric features were all standardized by z-score scaling. This prevents features with high numerical ranges (like area) from unduly influencing the model.</li>
-<li><strong>Train-Test Split</strong> The data were randomly partitioned into a training set comprised of 80% of the participants, and a testing set was obtained with the remaining 20% to assess the generalization ability of the model. The division was randomized but the same for all models to facilitate proper comparison.</li>
+<li><strong>Handling Categorical Features:</strong> The binary categorical variables (mainroad, guestroom, basement, hotwaterheating, airconditioning, prefarea), were converted to numeric by assigning value 0 to “No” and 1 to “Yes”. The furnishingstatus variable, which has more than two levels, was one-hot encoded to prevent imposing ordinal dependencies where there are none.</li>
+<li><strong>Normalization:</strong> For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), numeric features were all standardized by z-score scaling. This prevents features with high numerical ranges (like area) from unduly influencing the model.</li>
+<li><strong>Train-Test Split:</strong> The data were randomly partitioned into a training set comprised of 80% of the participants, and a testing set was obtained with the remaining 20% to assess the generalization ability of the model. The division was randomized but the same for all models to facilitate proper comparison.</li>
 </ul>
 
 
