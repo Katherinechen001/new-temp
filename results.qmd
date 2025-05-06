@@ -397,15 +397,12 @@ cat(
 Although the actual vs. predicted plot indicates that the models fits the data well overall (most points falling near the diagonal), closer examination reveals a systematic bias:
 
 - **High-End Underprediction:**
-
 When high-priced houses are predicted to be lower priced-(basically regression to the mean), perhaps because of the lack of features in the data available to the model in luxury-tier properties or some nonlinear function of sizes.
 
 - **Low-End Overprediction:**
-
 Properties with low cost are underestimated, which seems to reflect a floor effect, or suboptimal representation of low-end restrictions in the data.
 
 - **Mid-Range Scatter:**
-
 Higher scatter in the middle of the market (between –0.5 and +2 standard units) indicates higher model uncertainty, possibly because of unmodelled variation such as renovation quality, micro-location, or architectural style.
 
 **Model Limitations and Paths Forward**
@@ -413,7 +410,8 @@ Although the linear model is an effective and transparent model, some of its dra
 
 - **Nonlinear Terms:** Using quadratic/spline transformations for area or bathrooms resolves the shape of the response curve.
 - **Tiered Modeling:** Split the data into low/mid/high priced homes and estimate different models (or including interaction terms)
--**Feature Enrichment:** Incorporate geographic, school quality, or architectural characteristics that probably explain variation not captured in core variables.
+- **Feature Enrichment:** Incorporate geographic, school quality, or architectural characteristics that probably explain variation not captured in core variables.
+
 **Residual Analysis Confirms Homoscedasticity with Pockets of Concern**
 The residuals vs. fitted plot suggests a generally homoscedastic model (errors are spread equally across the value 0), but it indicates two problems:
 
