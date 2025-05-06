@@ -185,6 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#feature-importance-across-models" id="toc-feature-importance-across-models" class="nav-link active" data-scroll-target="#feature-importance-across-models"><span class="header-section-number">5.1</span> Feature Importance Across Models</a></li>
   <li><a href="#heuristic-reasoning-and-feature-relationships" id="toc-heuristic-reasoning-and-feature-relationships" class="nav-link" data-scroll-target="#heuristic-reasoning-and-feature-relationships"><span class="header-section-number">5.2</span> Heuristic Reasoning and Feature Relationships</a></li>
   <li><a href="#visualization-highlights" id="toc-visualization-highlights" class="nav-link" data-scroll-target="#visualization-highlights"><span class="header-section-number">5.3</span> Visualization Highlights</a></li>
+  <li><a href="#partial-dependence-plot" id="toc-partial-dependence-plot" class="nav-link" data-scroll-target="#partial-dependence-plot"><span class="header-section-number">5.4</span> Partial Dependence Plot</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/results.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -479,7 +480,9 @@ Some categorical features (e.g., <code>airconditioning</code>, <code>basement</c
 <p>As we can see, <code>area</code> has a major character in both IncNodePurity and permutation-based importance, which means larger homes require higher prices. However as mentioned before the model relies too heavily on area and this will bring the risk of ignoring subtler-still meaningful signals in the data. Houses growing from under average to about half size increases its predicted price dramatically, especially in the area around 1-2 standard deviations above the mean. But beyond this “sweet spot,” price appreciation trails off, implying that ultra-large homes bring little in the way of incremental value unless they’re in the luxury bracket.</p>
 <p>Bathroom count is subject to similar logic: going from 1 to 2 bathrooms gives a large increase in home value, which is perhaps a more practical requirement for families. But a third or fourth bathroom does little unless it is combined with other upscale features such as extra stories or square footage.</p>
 <p>Stories (number of floors) also present a different kind of threshold: The curve of added value steepens after two stories, suggesting that multi-storied architecture has, for some reason, a cachet or a design appeal that isn’t entirely a matter of more space. This could be for penthouses, lofts, or split-level plans.</p>
-<p>** Partial Dependence Plot **</p>
+</section>
+<section id="partial-dependence-plot" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="partial-dependence-plot"><span class="header-section-number">5.4</span> Partial Dependence Plot</h2>
 <p>After seeing which features matter most in the Random Forest, I wanted to understand how they influence price. The feature‐importance plot told me that area, bathrooms, air-conditioning, parking, and stories are the top drivers. But it didn’t reveal whether their effects are strictly linear, exhibit thresholds, or show diminishing returns.</p>
 <p>That’s why I produced the partial dependence plots. These six small plots trace each top predictor’s marginal impact on the model’s output, holding all other variables constant.</p>
 <div class="cell">
