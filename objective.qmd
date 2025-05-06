@@ -1,4 +1,4 @@
-# objective
+# Objective
 The main goal of this project is to understand and measure the determinants affecting housing prices in the US. The objective of the task is twofold: (Using multiple regression methods based on model fitness index.)
 Identification of Key Features: Identify the most impactful housing attributes – for example: area, number of rooms, utilities, or the geographical location the house is situated in.
 Predicting housing prices: The task is to develop an accurate model that can estimate the price of a house based on its features.
