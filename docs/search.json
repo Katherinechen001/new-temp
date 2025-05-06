@@ -103,5 +103,12 @@
     "title": "5  Results & Analysis",
     "section": "5.2 Heuristic Reasoning and Feature Relationships",
     "text": "5.2 Heuristic Reasoning and Feature Relationships\nOverlap:\nSome features seem to measure overlapping concepts: area, stories, and bathrooms all relate to house size and livability. This suggests multicollinearity, and regularisation (Lasso/Ridge) will favor area as the most influential feature.\nSimilarly, prefarea and furnishingstatus might each serve as a proxy for socioeconomic desirability (furnishing might simply echo neighborhood-based norms or buyer wealth), but neither clearly dominates on its own.\nBinary Characteristics and Step-Value Effects:\nSome categorical features (e.g., airconditioning, basement, `g"
+  },
+  {
+    "objectID": "results.html#visualization-highlights",
+    "href": "results.html#visualization-highlights",
+    "title": "5  Results & Analysis",
+    "section": "5.3 Visualization Highlights",
+    "text": "5.3 Visualization Highlights\nTo better understand how feature influence predictions, these are the findings which were found:"
   }
 ]

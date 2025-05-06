@@ -23,3 +23,6 @@ Similarly, `prefarea` and `furnishingstatus` might each serve as a proxy for soc
 
 **Binary Characteristics and Step-Value Effects:**  
 Some categorical features (e.g., `airconditioning`, `basement`, `g
+
+## Visualization Highlights
+To better understand how feature influence predictions, these are the findings which were found:
