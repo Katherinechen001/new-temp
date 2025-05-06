@@ -79,22 +79,41 @@ For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), nume
 The data were randomly partitioned into a training set comprised of 80% of the participants, and a testing set was obtained with the remaining 20% to assess the generalization ability of the model. The division was randomized but the same for all models to facilitate proper comparison.
 
 
-## Models Used
-Using five different models to predict house prices:
-- **Linear Regression**
-- **Ridge Regression**
-- **Lasso Regression**
-- **Elastic Net Regression**
-- **K-nearest neighbors (KNN) Regression**
+Five different models were implemented to predict house prices:
+
+- **Linear Regression**  
+- **Ridge Regression**  
+- **Lasso Regression**  
+- **Elastic Net Regression**  
+- **K-Nearest Neighbors (KNN) Regression**
+
+---
+
 ## Model Evaluation Metrics
-Each Model’s performance was evaluated on the test set using the following metrics:
-- **Mean Absolute Error(MAE)**
-- **Mean Squared Error (MSE)**
-- **Root Mean Squared Error (RMSE)**
+
+To assess and compare model performance, the following evaluation metrics were used:
+
+- **Mean Absolute Error (MAE)**  
+- **Mean Squared Error (MSE)**  
+- **Root Mean Squared Error (RMSE)**  
 - **R² Score (Coefficient of Determination)**
-4.4 Feature Importance
-Using different methods to estimate the feature importance:
-●Coefficient-Based Importance: For linear models (Linear, Lasso, Ridge, Elastic Net), standardized coefficients were used to rank features.
-●Permutation-Based Importance: For models such as K-NN which do not have coefficients they used permutation importance to show how shuffling a feature impacts the model’s performance.
-●Partial Dependence Plots (PDPs): Examine feature effect while holding others constant
-●SHAP-like reasoning: Interpret individual feature contributions
+
+These metrics provide complementary views of error magnitude and explanatory power.
+
+---
+
+## Feature Importance
+
+Feature importance was assessed using multiple techniques tailored to different model types:
+
+- **Coefficient-Based Importance**  
+  For linear models (Linear, Ridge, Lasso, and Elastic Net), the magnitude of standardized coefficients was used to rank feature importance.
+
+- **Permutation-Based Importance**  
+  For non-linear or non-parametric models like KNN, permutation importance was used to measure how randomly shuffling each feature affects model error.
+
+- **Partial Dependence Plots (PDPs)**  
+  PDPs were used to visualize the marginal effect of each feature on predicted price while holding other variables constant.
+
+- **SHAP-like Reasoning**  
+  Though SHAP values were not computed directly, similar interpretive logic was applied to understand individual feature contributions based on model behavior and prediction shifts.

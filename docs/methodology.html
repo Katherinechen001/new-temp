@@ -195,7 +195,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link active" data-scroll-target="#data-preprocessing"><span class="header-section-number">4.1</span> Data Preprocessing</a></li>
-  <li><a href="#models-used" id="toc-models-used" class="nav-link" data-scroll-target="#models-used"><span class="header-section-number">4.2</span> Models Used</a></li>
+  <li><a href="#model-evaluation-metrics" id="toc-model-evaluation-metrics" class="nav-link" data-scroll-target="#model-evaluation-metrics"><span class="header-section-number">4.2</span> Model Evaluation Metrics</a></li>
+  <li><a href="#feature-importance" id="toc-feature-importance" class="nav-link" data-scroll-target="#feature-importance"><span class="header-section-number">4.3</span> Feature Importance</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Katherinechen001/new-temp/edit/main/methodology.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/Katherinechen001/new-temp/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -373,10 +374,48 @@ $ furnishingstatus.furnished        &lt;dbl&gt; 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1,
 <li><strong>Normalization:</strong> For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), numeric features were all standardized by z-score scaling. This prevents features with high numerical ranges (like area) from unduly influencing the model.</li>
 <li><strong>Train-Test Split:</strong> The data were randomly partitioned into a training set comprised of 80% of the participants, and a testing set was obtained with the remaining 20% to assess the generalization ability of the model. The division was randomized but the same for all models to facilitate proper comparison.</li>
 </ul>
+<p>Five different models were implemented to predict house prices:</p>
+<ul>
+<li><strong>Linear Regression</strong><br>
+</li>
+<li><strong>Ridge Regression</strong><br>
+</li>
+<li><strong>Lasso Regression</strong><br>
+</li>
+<li><strong>Elastic Net Regression</strong><br>
+</li>
+<li><strong>K-Nearest Neighbors (KNN) Regression</strong></li>
+</ul>
+<hr>
 </section>
-<section id="models-used" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="models-used"><span class="header-section-number">4.2</span> Models Used</h2>
-<p>Using five different models to predict house prices: - <strong>Linear Regression</strong> - <strong>Ridge Regression</strong> - <strong>Lasso Regression</strong> - <strong>Elastic Net Regression</strong> - <strong>K-nearest neighbors (KNN) Regression</strong> ## Model Evaluation Metrics Each Model’s performance was evaluated on the test set using the following metrics: - <strong>Mean Absolute Error(MAE)</strong> - <strong>Mean Squared Error (MSE)</strong> - <strong>Root Mean Squared Error (RMSE)</strong> - <strong>R² Score (Coefficient of Determination)</strong> 4.4 Feature Importance Using different methods to estimate the feature importance: ●Coefficient-Based Importance: For linear models (Linear, Lasso, Ridge, Elastic Net), standardized coefficients were used to rank features. ●Permutation-Based Importance: For models such as K-NN which do not have coefficients they used permutation importance to show how shuffling a feature impacts the model’s performance. ●Partial Dependence Plots (PDPs): Examine feature effect while holding others constant ●SHAP-like reasoning: Interpret individual feature contributions</p>
+<section id="model-evaluation-metrics" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="model-evaluation-metrics"><span class="header-section-number">4.2</span> Model Evaluation Metrics</h2>
+<p>To assess and compare model performance, the following evaluation metrics were used:</p>
+<ul>
+<li><strong>Mean Absolute Error (MAE)</strong><br>
+</li>
+<li><strong>Mean Squared Error (MSE)</strong><br>
+</li>
+<li><strong>Root Mean Squared Error (RMSE)</strong><br>
+</li>
+<li><strong>R² Score (Coefficient of Determination)</strong></li>
+</ul>
+<p>These metrics provide complementary views of error magnitude and explanatory power.</p>
+<hr>
+</section>
+<section id="feature-importance" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="feature-importance"><span class="header-section-number">4.3</span> Feature Importance</h2>
+<p>Feature importance was assessed using multiple techniques tailored to different model types:</p>
+<ul>
+<li><p><strong>Coefficient-Based Importance</strong><br>
+For linear models (Linear, Ridge, Lasso, and Elastic Net), the magnitude of standardized coefficients was used to rank feature importance.</p></li>
+<li><p><strong>Permutation-Based Importance</strong><br>
+For non-linear or non-parametric models like KNN, permutation importance was used to measure how randomly shuffling each feature affects model error.</p></li>
+<li><p><strong>Partial Dependence Plots (PDPs)</strong><br>
+PDPs were used to visualize the marginal effect of each feature on predicted price while holding other variables constant.</p></li>
+<li><p><strong>SHAP-like Reasoning</strong><br>
+Though SHAP values were not computed directly, similar interpretive logic was applied to understand individual feature contributions based on model behavior and prediction shifts.</p></li>
+</ul>
 
 
 </section>
