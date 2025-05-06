@@ -1,5 +1,24 @@
 # Methodology
 This part will introduce the modeling process which is used to analyze the housing prices, which includes preprocessing steps, model selection, evaluation metrics, and feature importance analysis. 
+
+```{r}
+#import data
+library(tidyverse)
+library(caret)
+library(lattice)
+library(car)
+library(corrplot)
+library(glmnet)  
+library(randomForest)
+library(rpart)
+
+# Read the data and eliminate the rows containing NA
+set.seed(1234)
+data_raw <- read_csv("~/housing/data/Housing.csv")
+head(data_raw)
+str(data_raw)
+
+```
 ## Data Preprocessing
 In order to do the regression modeling for the dataset, several preprocessing steps need to be applied:
 
@@ -9,3 +28,4 @@ The binary categorical variables (mainroad, guestroom, basement, hotwaterheating
 For feature scale to sensitive models (Ridge, Lasso, Elastic Net, and KNN), numeric features were all standardized by z-score scaling. This prevents features with high numerical ranges (like area) from unduly influencing the model.
 - **Train-Test Split:**
 The data were randomly partitioned into a training set comprised of 80% of the participants, and a testing set was obtained with the remaining 20% to assess the generalization ability of the model. The division was randomized but the same for all models to facilitate proper comparison.
+
