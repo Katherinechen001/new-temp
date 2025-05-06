@@ -276,4 +276,5 @@ Towards the bottom of the chart shows that `guestroom.no`, `furnishingstatus.fur
 
 **Critical Takeaway**
 
-`area` and `bathrooms` are left right where sellers would expect to see them, as the “headline” determinants of price point, while the next tier (air conditioning, parking, stories) illustrate an amenity driven market of housing. However, the overwhelming importance of area screams that it is necessary to have a better feature engineering for it - for example, maybe normalizing by lot size or adding something non-linear based on location/area, and forcing the model to learn some more complex story than “bigger = more expensive.”
+`area` and `bathrooms` are left right where sellers would expect to see them, as the “headline” determinants of price point, while the next tier (air conditioning, parking, stories) illustrate an amenity driven market of housing. However, the overwhelming importance of area screams that it is necessary to have a better feature engineering for it - for example, maybe normalizing by lot size or adding something non-linear based on location/area, and forcing the model to learn some more complex story than **“bigger = more expensive.”**
+
